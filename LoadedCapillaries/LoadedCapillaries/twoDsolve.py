@@ -9,9 +9,8 @@ Solver = TwoDsolve.TwoDsolve()
 Solver.M.Pad = 100
 
 try:
-    #Solver.M.GAP      = float(sys.argv[1])
-    #Solver.M.Pad      = float(sys.argv[2])
-    Solver.M.Variables['filename'] = str(sys.argv[3])
+    Solver.M.Variables['filename'] = str(sys.argv[1])
+    Solver.M.Variables['roundTrips'] = float(sys.argv[2])
 except:
     print("That didn't work")
 

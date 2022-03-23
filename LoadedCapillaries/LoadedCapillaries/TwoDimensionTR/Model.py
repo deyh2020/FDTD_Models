@@ -1,5 +1,6 @@
 from cgitb import reset
 from curses.ascii import STX
+from tkinter import Variable
 from xml.etree.ElementPath import get_parent_map
 import meep as mp
 import numpy as np
@@ -37,7 +38,7 @@ class Model:
 			"dpml":1.55,
 			#Simulation source Properties
 			"fcen":1.000/1.550,
-			"df":1.00e-2,
+			"df":7.00e-2,
 			"nfreq":int(1e3),
 			"Courant":1.000/np.sqrt(2.000),
 			#Simulation Properties
@@ -46,15 +47,17 @@ class Model:
 			"workingDir":'',
 			"filename":'test',
 			"dataFile":'test',
-			"Objlist":[],
+			"roundTrips":1.00,    #relates to how long the sim will run relative to orbits of the WGM
 			#Flags
 			"normal":True,
+			"savefields":False
 		}
+
 
 		self.sim = None
 		self.PDMSindex()
 		self.Silicaindex()
-
+		self.Objlist = []
 
 	def RunTRspectrum(self):
 		
@@ -78,20 +81,20 @@ class Model:
 		self.buildFilledCapillary()  						#builds base polished fibre structure list
 		self.BuildModel(NormRun=False,Plot=True) 
 
-		if self.Variables["normal"] == True:
-			#load data from the normal run
-			self.sim.load_minus_flux_data(self.refl,self.norm_refl)
+		#if self.Variables["normal"] == True:
+		#	#load data from the normal run
+		#	self.sim.load_minus_flux_data(self.refl,self.norm_refl)
 
 		self.AutoRun()
 		self.toc()
 
-		#self.SaveMeta()
+		self.SaveMeta()
 
 	def PlotStructure(self):	
 
 		self.Variables['Objlist'] = []			
-		#self.buildFilledCapillary()  						#builds base polished fibre structure list
-		self.buildNorm()
+		self.buildFilledCapillary()  						#builds base polished fibre structure list
+		#self.buildNorm()
 		self.BuildModel(NormRun=False,Plot=True) 
 		plt.show()
 
@@ -113,7 +116,7 @@ class Model:
 			material=mp.Medium(index=self.Variables['nClad'])
 			)
 
-		self.Variables['Objlist'].extend([Taper])
+		self.Objlist.extend([Taper])
 
 
 
@@ -152,7 +155,7 @@ class Model:
 			material=mp.Medium(index=self.Variables['nClad'])
 			)
 
-		self.Variables['Objlist'].extend([OD,ID,Taper])
+		self.Objlist.extend([OD,ID,Taper])
 
 
 	def BuildModel(self,Plot=False,NormRun=False):   # builds sim and plots structure to file 
@@ -165,7 +168,6 @@ class Model:
 		sx   = self.Variables['sx']
 		sy   = self.Variables['sy']
 		dpml = self.Variables['dpml']
-		Objlist = self.Variables['Objlist']
 		res     = self.Variables['res']
 		Courant = self.Variables['Courant']
 		nfreq   = self.Variables['nfreq']
@@ -193,7 +195,7 @@ class Model:
 		
 		self.sim = mp.Simulation(
 			cell_size=self.cell_size,
-			geometry=Objlist,
+			geometry=self.Objlist,
 			sources=self.src,
 			resolution=res,
 			force_complex_fields=False,
@@ -285,31 +287,34 @@ class Model:
 			
 			)
 		"""
-
-		self.sim.run(
-			mp.at_beginning(mp.output_epsilon),
-			mp.at_every(200,mp.output_efield_z),
-			until_after_sources=self.Variables['sx']*self.Variables['nClad']
-			
-			)
+		if self.Variables['savefields'] == True:
+			self.sim.run(
+				mp.at_beginning(mp.output_epsilon),
+				mp.at_every(200,mp.output_efield_z),
+				until_after_sources=self.Variables['nClad']* (self.Variables['sx']/2 + np.pi*self.Variables['capD']*self.Variables['roundTrips'])
+				
+				)
+		else:
+			self.sim.run(	
+				mp.at_beginning(mp.output_epsilon),
+				until_after_sources=self.Variables['nClad']* (self.Variables['sx']/2 + np.pi*self.Variables['capD']*self.Variables['roundTrips'])
+				
+				)
 
 
 		
 
-		flux_freqs = mp.get_flux_freqs(self.refl)
-		refl_flux = mp.get_fluxes(self.refl)
+		flux_freqs = mp.get_flux_freqs(self.tranE)
 		tran_flux = mp.get_fluxes(self.tranE)
 
 		Data = {}
 		Data['flux_freqs'] = flux_freqs
-		Data['refl_flux'] = refl_flux
 		Data['tran_flux'] = tran_flux
 
-		if self.normal == True:
+		if self.Variables["normal"] == True:
 			Data['norm_tran'] = self.norm_tran
-			Data['norm_refl'] = self.norm_refl
 
-		with open(self.workingDir + self.Datafile + ".pkl", 'wb') as file:
+		with open(self.Variables['workingDir'] + self.Variables['dataFile'] + ".pkl", 'wb') as file:
 			pickle.dump(Data,file)
 
 		
@@ -321,27 +326,20 @@ class Model:
 
 
 		wl = []
-		Rs = []
 		Ts = []
-		for i in range(self.nfreq):
+		for i in range(self.Variables['nfreq']):
 			wl = np.append(wl, 1/flux_freqs[i])
-			if self.normal == True:
-				Rs = np.append(Rs,-refl_flux[i]/self.norm_tran[i])
+			
+			if self.Variables["normal"] == True:
 				Ts = np.append(Ts,tran_flux[i]/self.norm_tran[i])
-			elif self.normal == False:
-				Rs = np.append(Rs,-refl_flux[i])
+			elif self.Variables["normal"] == False:
 				Ts = np.append(Ts,tran_flux[i])
 
 		plt.figure()
-		#plt.plot(wl,Rs,'--',label='reflectance')
 		plt.plot(wl,Ts,label='transmittance')
-		#plt.plot(wl,1-Rs-Ts,label='loss')
-		#plt.axis([5.0, 10.0, 0, 1])
 		plt.xlabel("wavelength (μm)")
-		#plt.legend(loc="upper right")
-		plt.savefig(self.workingDir+"TransRef_" + str(self.Datafile) +".pdf")
-		#plt.show()
-
+		plt.savefig(self.Variables['workingDir']+"TransRef_" + str(self.Variables['dataFile']) +".pdf")
+		
 
 	def mkALLDIRS(self):
 		
@@ -358,80 +356,11 @@ class Model:
 
 
 	def SaveMeta(self):
+
+		self.Variables['CPUS'] = str(self.sim.num_chunks)
 		
-		metadata = {
-		"Runtime":self.Runtime,
-		"Chunks":self.sim.num_chunks,
-		##Material N
-		"nCoating": self.nCoating,
-		"CoreN":self.coreN,
-		"CladN":self.cladN,
-		##Fibre Dimentions
-		"R1":self.R1,
-		"R2":self.R2,
-		"CladLeft":self.CladLeft,
-		##Resonator Dimentions
-		"Depth":self.Depth,
-		"Width":self.Width,
-		"GAP":self.GAP,
-		"Rw":self.Rw,
-		##Src properties
-		"fcen":self.fcen,
-		"df":self.df, 
-		"nfreq":self.nfreq,
-
-		##MEEP properties
-		"dpml":self.dpml,
-		"resolution":self.res,
-		"DecayF":self.DecayF,
-		"WallT":self.WallT,
-		"SimT":self.SimT,
-		"today":self.today,
-		"WorkingDir":self.workingDir,
-		"filename":self.filename,
-		"notes":self.Notes,
-
-		"sx":self.sx,
-		"sy":self.sy
-        }
-
-		
-		with open(self.workingDir + str(self.sim.num_chunks) + '_metadata.json', 'w') as file:
-			json.dump(metadata, file)
-
-
-
-
-	def dumpData2File(self):
-    
-		# initialise main data dictionary
-		Data = {}
-		
-		
-		Data['Src']['lambda'] = 1/np.array(mp.get_flux_freqs(self.srcE))
-		Data['Src']['flux'] = np.array(mp.get_fluxes(self.srcE))
-		
-		Data['Out']['lambda'] = 1/np.array(mp.get_flux_freqs(self.tranE))
-		Data['Out']['flux'] = np.array(mp.get_fluxes(self.tranE))
-		
-
-		metadata = {
-			"date": str(self.today),
-			"Data": self.workingDir+"Data.pk1"
-		}
-
-		metadata = {**metadata,**self.meta}
-		
-		Data = {}
-		Data['Src'] = {}       # sensor just after source.
-		Data['Out'] = {}       # sensor at the end of the WG (for transmission)
-
-		with open(metadata['Data'], 'wb') as file:
-			pickle.dump(Data,file)
-
-
-		with open(self.workingDir + 'metadata.json', 'w') as file:
-			json.dump(metadata, file)
+		with open(self.Variables['workingDir'] + 'metadata.json', 'w') as file:
+			json.dump(self.Variables, file)
 
 
 
@@ -448,8 +377,8 @@ class Model:
 	# This will be the main function through which we define both tic() and toc()
 	def toc(self,tempBool=True):
 		# Prints the time difference yielded by generator instance TicToc
-		self.Runtime = next(self.TicToc)
-		print("Whole Sim Walltime: "+ str(self.Runtime) + " s")
+		self.Variables['WallT'] = next(self.TicToc)
+		print("Whole Sim Walltime: "+ str(self.Variables['WallT']) + " s")
 		 
 
 	def tic(self):
