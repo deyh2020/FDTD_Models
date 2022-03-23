@@ -1,0 +1,2 @@
+Seems to couple into only higher order modes.
+Probably worth doing a critical coupling experiment.
