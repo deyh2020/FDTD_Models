@@ -34,7 +34,7 @@ class Model:
 			"GAP":0.667,
 			#Simulation area Properties
 			"PAD":2.000,
-			"res":10.000/1.0,    # would usually be 10px per wl but our smallest wg is 1um
+			"res":10.000/1.0,    # would usually be 10px per wl but our smallest waveguide is 1um thick
 			"dpml":1.55,
 			#Simulation source Properties
 			"fcen":1.000/1.550,
