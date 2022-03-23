@@ -1,0 +1,137 @@
+Using MPI version 3.1, 16 processes
+[<meep.geom.Cylinder object at 0x7f07bd835be0>, <meep.geom.Cylinder object at 0x7f07bdaf9700>, <meep.geom.Block object at 0x7f07bdaf9fa0>]
+WD: data/2021-11-25/SimsizeConvergeTopsy/
+AlreadyDir
+-----------
+Initializing structure...
+Splitting into 16 chunks by voxels
+time for choose_chunkdivision = 0.00108279 s
+Working in 2D dimensions.
+Computational cell is 10 x 10 x 0 with resolution 10
+     cylinder, center = (0,0,0)
+          radius 62.5, height 1e+20, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (2.0736,2.0736,2.0736)
+     cylinder, center = (0,0,0)
+          radius 4.1, height 1e+20, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (2.08803,2.08803,2.08803)
+     block, center = (0,35.35,0)
+          size (250,62.5,1e+20)
+          axes (1,0,0), (0,1,0), (0,0,1)
+          dielectric constant epsilon diagonal = (1,1,1)
+time for set_epsilon = 0.0134678 s
+-----------
+Meep: using complex fields.
+Meep: using output directory 'data/2021-11-25/SimsizeConvergeTopsy/'
+MPB solved for frequency_1(0,0,0.932258) = 0.645167 after 42 iters
+MPB solved for frequency_1(0,0,0.93225) = 0.645161 after 1 iters
+Dominant planewave for band 1: (0.000000,0.000000,0.932250)
+[<meep.geom.Cylinder object at 0x7f07bd84aa60>, <meep.geom.Cylinder object at 0x7f07bd842820>, <meep.geom.Block object at 0x7f07bd842640>]
+WD: data/2021-11-25/SimsizeConvergeTopsy/
+AlreadyDir
+-----------
+Initializing structure...
+Splitting into 16 chunks by voxels
+time for choose_chunkdivision = 0.00112949 s
+Working in 2D dimensions.
+Computational cell is 20 x 20 x 0 with resolution 10
+     cylinder, center = (0,0,0)
+          radius 62.5, height 1e+20, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (2.0736,2.0736,2.0736)
+     cylinder, center = (0,0,0)
+          radius 4.1, height 1e+20, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (2.08803,2.08803,2.08803)
+     block, center = (0,35.35,0)
+          size (250,62.5,1e+20)
+          axes (1,0,0), (0,1,0), (0,0,1)
+          dielectric constant epsilon diagonal = (1,1,1)
+time for set_epsilon = 0.0332134 s
+-----------
+Meep: using complex fields.
+Meep: using output directory 'data/2021-11-25/SimsizeConvergeTopsy/'
+MPB solved for frequency_1(0,0,0.932258) = 0.646685 after 207 iters
+MPB solved for frequency_1(0,0,0.930055) = 0.645161 after 28 iters
+MPB solved for frequency_1(0,0,0.930055) = 0.645161 after 1 iters
+Dominant planewave for band 1: (0.000000,0.000000,0.930055)
+[<meep.geom.Cylinder object at 0x7f07bd8515b0>, <meep.geom.Cylinder object at 0x7f07bd84e430>, <meep.geom.Block object at 0x7f07bd84e490>]
+WD: data/2021-11-25/SimsizeConvergeTopsy/
+AlreadyDir
+-----------
+Initializing structure...
+Splitting into 16 chunks by voxels
+time for choose_chunkdivision = 0.00141597 s
+Working in 2D dimensions.
+Computational cell is 40 x 40 x 0 with resolution 10
+     cylinder, center = (0,0,0)
+          radius 62.5, height 1e+20, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (2.0736,2.0736,2.0736)
+     cylinder, center = (0,0,0)
+          radius 4.1, height 1e+20, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (2.08803,2.08803,2.08803)
+     block, center = (0,35.35,0)
+          size (250,62.5,1e+20)
+          axes (1,0,0), (0,1,0), (0,0,1)
+          dielectric constant epsilon diagonal = (1,1,1)
+time for set_epsilon = 0.0727662 s
+-----------
+Meep: using complex fields.
+Meep: using output directory 'data/2021-11-25/SimsizeConvergeTopsy/'
+MPB solved for frequency_1(0,0,0.932258) = 0.646684 after 305 iters
+MPB solved for frequency_1(0,0,0.930056) = 0.645161 after 47 iters
+MPB solved for frequency_1(0,0,0.930056) = 0.645161 after 1 iters
+Dominant planewave for band 1: (0.000000,0.000000,0.930056)
+[<meep.geom.Cylinder object at 0x7f07bd842a00>, <meep.geom.Cylinder object at 0x7f07df7619d0>, <meep.geom.Block object at 0x7f07df761bb0>]
+WD: data/2021-11-25/SimsizeConvergeTopsy/
+AlreadyDir
+-----------
+Initializing structure...
+Splitting into 16 chunks by voxels
+time for choose_chunkdivision = 0.00201976 s
+Working in 2D dimensions.
+Computational cell is 80 x 80 x 0 with resolution 10
+     cylinder, center = (0,0,0)
+          radius 62.5, height 1e+20, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (2.0736,2.0736,2.0736)
+     cylinder, center = (0,0,0)
+          radius 4.1, height 1e+20, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (2.08803,2.08803,2.08803)
+     block, center = (0,35.35,0)
+          size (250,62.5,1e+20)
+          axes (1,0,0), (0,1,0), (0,0,1)
+          dielectric constant epsilon diagonal = (1,1,1)
+time for set_epsilon = 0.247336 s
+-----------
+Meep: using complex fields.
+Meep: using output directory 'data/2021-11-25/SimsizeConvergeTopsy/'
+MPB solved for frequency_1(0,0,0.932258) = 0.646685 after 390 iters
+MPB solved for frequency_1(0,0,0.930055) = 0.645161 after 50 iters
+MPB solved for frequency_1(0,0,0.930055) = 0.645161 after 1 iters
+Dominant planewave for band 1: (0.000000,0.000000,0.930055)
+[<meep.geom.Cylinder object at 0x7f07bd8359d0>, <meep.geom.Cylinder object at 0x7f07bd851ca0>, <meep.geom.Block object at 0x7f07bd853040>]
+WD: data/2021-11-25/SimsizeConvergeTopsy/
+AlreadyDir
+-----------
+Initializing structure...
+Splitting into 16 chunks by voxels
+time for choose_chunkdivision = 0.00229101 s
+Working in 2D dimensions.
+Computational cell is 130 x 130 x 0 with resolution 10
+     cylinder, center = (0,0,0)
+          radius 62.5, height 1e+20, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (2.0736,2.0736,2.0736)
+     cylinder, center = (0,0,0)
+          radius 4.1, height 1e+20, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (2.08803,2.08803,2.08803)
+     block, center = (0,35.35,0)
+          size (250,62.5,1e+20)
+          axes (1,0,0), (0,1,0), (0,0,1)
+          dielectric constant epsilon diagonal = (1,1,1)
+time for set_epsilon = 0.698346 s
+-----------
+Meep: using complex fields.
+Meep: using output directory 'data/2021-11-25/SimsizeConvergeTopsy/'
+MPB solved for frequency_1(0,0,0.932258) = 0.646684 after 515 iters
+MPB solved for frequency_1(0,0,0.930056) = 0.645161 after 48 iters
+MPB solved for frequency_1(0,0,0.930056) = 0.645161 after 2 iters
+Dominant planewave for band 1: (0.000000,0.000000,0.930056)
+
+Elapsed run time = 5634.9151 s
