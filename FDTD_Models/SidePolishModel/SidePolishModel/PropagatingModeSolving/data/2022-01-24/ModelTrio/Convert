@@ -1,3 +1,0 @@
-h5topng -S5 -m 2.065 -M 2.0880 CWsolve-FieldProfiles-eps-000000.00.h5
-
-h5topng -S3 -Zc dkbluered -a yarg -m 2.065 -M 2.0880 -A CWsolve-FieldProfiles-eps-000000.00.h5 CWsolve-FieldProfiles-ey-000000.00.h5

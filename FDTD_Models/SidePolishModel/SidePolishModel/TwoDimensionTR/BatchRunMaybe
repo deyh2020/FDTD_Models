@@ -1,4 +1,0 @@
-mpirun -np 6 python ~/MEEP_Models/SidePolishedFabryPerot/2D_Trans&Refl/HalfDevice.py
-mpirun -np 6 python ~/MEEP_Models/SidePolishedFabryPerot/2D_Trans&Refl/FullDevice.py
-
-
