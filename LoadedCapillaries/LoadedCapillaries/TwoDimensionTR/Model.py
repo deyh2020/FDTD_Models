@@ -62,7 +62,7 @@ class Model:
 	def RunTRspectrum(self):
 		
 		self.tic()
-		self.Variables['Objlist'] = []						#Reset Model and build structur
+		self.Objlist = []					#Reset Model and build structur
 
 
 		if self.Variables["normal"] == True:
@@ -76,7 +76,7 @@ class Model:
 			self.sim.reset_meep()
 			
 
-		self.Variables['Objlist'] = []
+		self.Objlist = []
 		
 		self.buildFilledCapillary()  						#builds base polished fibre structure list
 		self.BuildModel(NormRun=False,Plot=True) 
@@ -92,7 +92,7 @@ class Model:
 
 	def PlotStructure(self):	
 
-		self.Variables['Objlist'] = []			
+		self.Objlist = []	
 		self.buildFilledCapillary()  						#builds base polished fibre structure list
 		#self.buildNorm()
 		self.BuildModel(NormRun=False,Plot=True) 

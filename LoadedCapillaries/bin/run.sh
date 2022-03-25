@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python ../LoadedCapillaries/twoDsolve.py Laptop_10 10.0
+python ../LoadedCapillaries/twoDsolve.py Laptop_Debug 0
