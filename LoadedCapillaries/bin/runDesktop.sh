@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python ../LoadedCapillaries/twoDsolve.py DesktopRun 1000
+python ../LoadedCapillaries/twoDsolve.py DesktopRun 500
