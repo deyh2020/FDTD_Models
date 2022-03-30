@@ -37,9 +37,9 @@ class Model:
 			"res":10.000/1.0,    # would usually be 10px per wl but our smallest waveguide is 1um thick
 			"dpml":1.55,
 			#Simulation source Properties
-			"fcen":1.000/1.550,
-			"df":7.00e-2,
-			"nfreq":int(1e3),
+			"StartWL":1.520,
+			"EndWL":1.580,
+			"WLres":0.17/1000, #res in um
 			"Courant":1.000/np.sqrt(2.000),
 			#Simulation Properties
 			"today":str(date.today()),
@@ -163,14 +163,20 @@ class Model:
 		kx = 0.4
 		kpoint = mp.Vector3(kx)
 
-		fcen = self.Variables['fcen']
-		df   = self.Variables['df']
+		fcen  = 1.0/((self.Variables['EndWL'] + self.Variables['StartWL'])/2.0)
+		df    = ((1/self.Variables['StartWL']) - (1/self.Variables['EndWL']))
+		nfreq = int((self.Variables['EndWL']-self.Variables['StartWL'])/self.Variables['WLres'])
+		
+		self.Variables['fcen'] = fcen
+		self.Variables['df'] = df
+		self.Variables['nfreq'] = nfreq
+		
 		sx   = self.Variables['sx']
 		sy   = self.Variables['sy']
 		dpml = self.Variables['dpml']
 		res     = self.Variables['res']
 		Courant = self.Variables['Courant']
-		nfreq   = self.Variables['nfreq']
+		
 		PAD     = self.Variables['PAD']
 		GAP		= self.Variables['GAP']
 		workingDir = self.Variables['workingDir']

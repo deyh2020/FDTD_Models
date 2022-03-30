@@ -11,9 +11,6 @@ class TwoDsolve:
 
         self.M = M.Model()
 
-
-
-
     def run(self):
 
         #self.mode_1()
