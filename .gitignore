@@ -118,3 +118,4 @@ dmypy.json
 *.png
 *.pkl
 *.pdf
+*/data/*
