@@ -50,7 +50,7 @@ def Normalise(WL,PWR):
 plt.figure(figsize=(16,10))
 
 """Simulaiton Data"""
-simdatafile = "../data/2022-03-30/MEEP_1000/test.pkl"
+simdatafile = "../data/2022-03-31/Laptop_Debug_1/test.pkl"
 with open(simdatafile,"rb") as file:
     data = pickle.load(file)
 
@@ -68,7 +68,7 @@ for i in range(len(flux_freqs)):
 
 wl = wl*1000
 
-plt.plot(wl,Ts,label='SimulatonData')
+plt.plot(wl,Ts,'x',label='SimulatonData')
 #plt.plot(wl,Ts,'x')
 
 
@@ -83,7 +83,7 @@ normPWR = Normalise(WL,PWR)
 
 
 
-plt.plot(WL,normPWR,label='Experimental Data')
+#plt.plot(WL,normPWR,label='Experimental Data')
 
 
 print("Simulation Datapoints: "+ str(len(flux_freqs)))

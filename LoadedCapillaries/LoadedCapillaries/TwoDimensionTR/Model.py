@@ -25,6 +25,7 @@ class Model:
 			#programming vars 
 			"debug":False,
 			"prevRun":False,
+			"SimTime":0.0,
 			#refractive indexes
 			"nAir": 1.000,
 			"nCore":1.445,
@@ -42,7 +43,7 @@ class Model:
 			#Simulation source Properties
 			"StartWL":1.520,
 			"EndWL":1.580,
-			"WLres":0.17/1000, #res in um
+			"WLres":0.001/1000, #res in um so picometer resolution
 			"Courant":1.000/np.sqrt(2.000),
 			#Simulation Properties
 			"today":str(date.today()),
@@ -72,6 +73,12 @@ class Model:
 				
 		#check whether fields file exists.
 		if os.path.exists(self.Variables["workingDir"] + "fields.h5"):
+			try:
+				#try to reload variables
+				with open(self.Variables['workingDir'] + "metadata.json") as json_file:
+					self.Variables = json.load(json_file)
+			except:
+				print("Tried to load old vars from .json")
 			print("settign var true")
 			self.Variables["prevRun"] = True 
 
@@ -108,6 +115,7 @@ class Model:
 
 		self.AutoRun()
 		self.toc()
+		self.sim.print_times()
 
 		self.SaveMeta()
 
@@ -188,7 +196,17 @@ class Model:
 		fcen  = 1.0/((self.Variables['EndWL'] + self.Variables['StartWL'])/2.0)
 		df    = ((1/self.Variables['StartWL']) - (1/self.Variables['EndWL']))
 		nfreq = int((self.Variables['EndWL']-self.Variables['StartWL'])/self.Variables['WLres'])
+
+		print("")
+		print("")
+		print("")
+		print("Datapoints:-   " + str(nfreq))
+		print("")
+		print("")
+		print("")
 		
+
+
 		self.Variables['fcen'] = fcen
 		self.Variables['df'] = df
 		self.Variables['nfreq'] = nfreq
@@ -319,29 +337,32 @@ class Model:
 		print("")
 		print("")
 
+		print("Previous SimTime = " + str(self.Variables['SimTime']))
+
 		
 
 		if self.Variables['savefields'] == True:
 			self.sim.run(
 				mp.at_beginning(mp.output_epsilon),
 				mp.at_every(200,mp.output_efield_z),
-				until_after_sources=self.Variables['nClad']* (self.Variables['sx']/2 + np.pi*self.Variables['capD']*self.Variables['roundTrips'])
+				until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + np.pi*self.Variables['capD']*self.Variables['roundTrips'])
 				
 				)
 		else:
 			self.sim.run(	
 				mp.at_beginning(mp.output_epsilon),
-				until_after_sources=self.Variables['nClad']* (self.Variables['sx']/2 + np.pi*self.Variables['capD']*self.Variables['roundTrips'])
+				until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + np.pi*self.Variables['capD']*self.Variables['roundTrips'])
 				
 				)
 
-
+		print("SimTime = " + str(self.sim.round_time() ))
 
 		"""
 		Dumping fields and fluxes
 		"""
 		self.sim.dump(self.Variables['workingDir'])
 		self.sim.save_flux("Transmission",self.tranE)
+		self.Variables['SimTime'] = self.sim.round_time()
 
 
 
@@ -376,10 +397,10 @@ class Model:
 			elif self.Variables["normal"] == False:
 				Ts = np.append(Ts,tran_flux[i])
 
-		plt.figure()
+		plt.figure(dpi=1000)
 		plt.plot(wl,Ts,label='transmittance')
 		plt.xlabel("wavelength (μm)")
-		plt.savefig(self.Variables['workingDir']+"TransRef_" + str(self.Variables['dataFile']) +".pdf")
+		plt.savefig(self.Variables['workingDir']+"TransRef_" + str(int(self.Variables['SimTime'])) + ".pdf")
 		
 
 	def mkALLDIRS(self):

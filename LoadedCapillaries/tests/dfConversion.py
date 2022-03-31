@@ -4,13 +4,15 @@ c = 1.00
 
 
 StartWL = 1.520
-StopWl  = 1.580
-res     = 0.01/1000   #nm
+EndWl  = 1.580
 
-dpts = (StopWl-StartWL)/res
-df  = ((1/StartWL) - (1/StopWl))
-fcen = c/((StopWl + StartWL)/2.0)
+dppnm   = 100
+res     = (1/dppnm)/1000   #nm
+
+fcen  = 1.0/((EndWl + StartWL)/2.0)
+df    = ((1/StartWL) - (1/EndWl))
+nfreq = int((EndWl-StartWL)/res)
 
 print("fcen: "+str(fcen))
 print("df: "+str(df))
-print("dpts: "+str(dpts))
+print("dpts: "+str(nfreq))
