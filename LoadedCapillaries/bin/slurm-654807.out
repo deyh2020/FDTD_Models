@@ -1,0 +1,67 @@
+Warning: grid volume is not an integer number of pixels; cell size will be rounded to nearest pixel.
+Using MPI version 3.1, 24 processes
+Argument List: ['../LoadedCapillaries/twoDsolve.py', 'MEEP_32', '10']
+Standard run
+WD: ../data/2022-03-31/MEEP_32/
+AlreadyDir
+Whole Sim Walltime: 4.76837158203125e-07 s
+
+
+
+Datapoints:-   60000
+
+
+
+0.6451612903225806
+0.024983344437042088
+60000
+-----------
+Initializing structure...
+Splitting into 24 chunks by voxels
+time for choose_chunkdivision = 0.000972651 s
+Working in 2D dimensions.
+Computational cell is 87.1 x 11.8 x 0 with resolution 10
+     block, center = (0,0,0)
+          size (1e+20,1,1e+20)
+          axes (1,0,0), (0,1,0), (0,0,1)
+          dielectric constant epsilon diagonal = (2.0736,2.0736,2.0736)
+time for set_epsilon = 0.0927198 s
+-----------
+MPB solved for frequency_1(0.4,0,0) = 0.325672 after 11 iters
+MPB solved for frequency_1(0.851154,0,0) = 0.635937 after 9 iters
+MPB solved for frequency_1(0.864706,0,0) = 0.645161 after 7 iters
+MPB solved for frequency_1(0.864707,0,0) = 0.645161 after 1 iters
+Meep: using output directory '../data/2022-03-31/MEEP_32/'
+
+
+Normalisation Run
+
+
+on time step 44 (time=3.11127), 0.0929503 s/step
+on time step 88 (time=6.22254), 0.0926616 s/step
+on time step 132 (time=9.33381), 0.0925655 s/step
+on time step 176 (time=12.4451), 0.0925114 s/step
+on time step 220 (time=15.5563), 0.0925686 s/step
+on time step 264 (time=18.6676), 0.0923931 s/step
+on time step 308 (time=21.7789), 0.0924263 s/step
+Meep progress: 22.980970388562795/525.6906625976562 = 4.4% done in 30.1s, 658.1s to go
+on time step 352 (time=24.8902), 0.0926461 s/step
+on time step 396 (time=28.0014), 0.0921919 s/step
+on time step 440 (time=31.1127), 0.0923412 s/step
+on time step 484 (time=34.224), 0.0925391 s/step
+on time step 528 (time=37.3352), 0.0924392 s/step
+on time step 572 (time=40.4465), 0.0923884 s/step
+on time step 616 (time=43.5578), 0.0925519 s/step
+Meep progress: 45.96194077712559/525.6906625976562 = 8.7% done in 60.1s, 627.7s to go
+on time step 660 (time=46.669), 0.0926706 s/step
+on time step 704 (time=49.7803), 0.0924271 s/step
+on time step 748 (time=52.8916), 0.092873 s/step
+on time step 792 (time=56.0029), 0.0924112 s/step
+srun: Job step aborted: Waiting up to 62 seconds for job step to finish.
+srun: got SIGCONT
+slurmstepd: error: *** STEP 654807.0 ON topsy-cn-1-6 CANCELLED AT 2022-03-31T13:56:01 ***
+slurmstepd: error: *** JOB 654807 ON topsy-cn-1-6 CANCELLED AT 2022-03-31T13:56:01 ***
+srun: forcing job termination
+srun: error: topsy-cn-1-6: tasks 0-1: Terminated
+srun: error: topsy-cn-1-12: tasks 18-23: Terminated
+srun: error: topsy-cn-1-11: tasks 2-17: Terminated

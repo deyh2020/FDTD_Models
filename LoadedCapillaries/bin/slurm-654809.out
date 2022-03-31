@@ -1,0 +1,41 @@
+Warning: grid volume is not an integer number of pixels; cell size will be rounded to nearest pixel.
+Using MPI version 3.1, 24 processes
+Argument List: ['../LoadedCapillaries/twoDsolve.py', 'MEEP_32', '10']
+Standard run
+WD: ../data/2022-03-31/MEEP_32/
+AlreadyDir
+Whole Sim Walltime: 2.384185791015625e-07 s
+
+
+
+Datapoints:-   60000
+
+
+
+0.6451612903225806
+0.024983344437042088
+60000
+-----------
+Initializing structure...
+Splitting into 24 chunks by voxels
+time for choose_chunkdivision = 0.000831723 s
+Working in 2D dimensions.
+Computational cell is 87.1 x 11.8 x 0 with resolution 10
+     block, center = (0,0,0)
+          size (1e+20,1,1e+20)
+          axes (1,0,0), (0,1,0), (0,0,1)
+          dielectric constant epsilon diagonal = (2.0736,2.0736,2.0736)
+time for set_epsilon = 0.491783 s
+-----------
+MPB solved for frequency_1(0.4,0,0) = 0.325672 after 11 iters
+MPB solved for frequency_1(0.851154,0,0) = 0.635937 after 9 iters
+MPB solved for frequency_1(0.864706,0,0) = 0.645161 after 7 iters
+MPB solved for frequency_1(0.864707,0,0) = 0.645161 after 1 iters
+srun: Job step aborted: Waiting up to 62 seconds for job step to finish.
+srun: got SIGCONT
+slurmstepd: error: *** STEP 654809.0 ON topsy-cn-1-9 CANCELLED AT 2022-03-31T13:56:06 ***
+slurmstepd: error: *** JOB 654809 ON topsy-cn-1-9 CANCELLED AT 2022-03-31T13:56:06 ***
+srun: forcing job termination
+srun: error: topsy-cn-2-14: tasks 20-23: Terminated
+srun: error: topsy-cn-2-13: tasks 12-19: Terminated
+srun: error: topsy-cn-1-9: tasks 0-11: Terminated
