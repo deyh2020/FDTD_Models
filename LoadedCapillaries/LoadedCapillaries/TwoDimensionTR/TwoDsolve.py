@@ -18,6 +18,11 @@ class TwoDsolve:
         #self.plotEXP()
         self.M.RunTRspectrum()
 
+    def debug(self):
+        self.M.RunTRspectrum()
+
+
+
     def sqrBubbles(self):
         self.M.angle = 90
         self.M.AutoRun()

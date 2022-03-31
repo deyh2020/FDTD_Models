@@ -20,9 +20,15 @@ if "nonormal" in args:
 
 
 
+
+
 if "justplot" in args:
     print("Just plotting")
     Solver.pltStructure()
+elif "debug" in args:
+    print("Debug Run")
+    Solver.M.Variables['debug'] = True
+    Solver.run()
 else:
     print("Standard run")
     Solver.run()

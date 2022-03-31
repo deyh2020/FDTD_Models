@@ -22,6 +22,9 @@ class Model:
 		#Huge Dictionary of variables
 
 		self.Variables = {
+			#programming vars 
+			"debug":False,
+			"prevRun":False,
 			#refractive indexes
 			"nAir": 1.000,
 			"nCore":1.445,
@@ -59,13 +62,24 @@ class Model:
 		self.Silicaindex()
 		self.Objlist = []
 
+	
+
 	def RunTRspectrum(self):
+
+		#if self.Variables['debug'] == True:
+		self.Variables["workingDir"] = '../data/'+self.Variables["today"]+'/'+self.Variables['filename']+'/'
+		self.mkALLDIRS()
+				
+		#check whether fields file exists.
+		if os.path.exists(self.Variables["workingDir"] + "fields.h5"):
+			print("settign var true")
+			self.Variables["prevRun"] = True 
+
 		
 		self.tic()
-		self.Objlist = []					#Reset Model and build structur
+		self.Objlist = []					#Reset Model and build structure
 
-
-		if self.Variables["normal"] == True:
+		if self.Variables["normal"] == True and self.Variables["prevRun"] == False:
 			self.buildNorm()  						#builds base polished fibre structure list		
 			self.BuildModel(NormRun=True,Plot=True) 
 
@@ -74,6 +88,16 @@ class Model:
 
 			#Reset sources
 			self.sim.reset_meep()
+		elif self.Variables["prevRun"] == True:
+			#load pickless
+			with open(self.Variables["workingDir"] + self.Variables['dataFile'] + ".pkl","rb") as file:
+				data = pickle.load(file)
+
+			self.norm_tran = data['norm_tran']
+
+			print("Loaded up pickles")
+		else:
+			"not normaling anyways rip"
 			
 
 		self.Objlist = []
@@ -81,14 +105,12 @@ class Model:
 		self.buildFilledCapillary()  						#builds base polished fibre structure list
 		self.BuildModel(NormRun=False,Plot=True) 
 
-		#if self.Variables["normal"] == True:
-		#	#load data from the normal run
-		#	self.sim.load_minus_flux_data(self.refl,self.norm_refl)
 
 		self.AutoRun()
 		self.toc()
 
 		self.SaveMeta()
+
 
 	def PlotStructure(self):	
 
@@ -212,9 +234,10 @@ class Model:
 			#geometry_center=mp.Vector3(x=0,y=-25,z=0)
 			#k_point=mp.Vector3(mp.X)
 			)
+		self.sim.use_output_directory(self.Variables["workingDir"])
 
 
-		self.mkALLDIRS()
+		
 
 
 		print(fcen)
@@ -276,6 +299,19 @@ class Model:
 
 
 	def AutoRun(self):
+
+		print("prevRun"+str(self.Variables["prevRun"]))
+		#self.myRunFunction(self.monitorPts)
+		if self.Variables["prevRun"] == True:
+			print("")
+			print("")
+			print("")
+			print("Reloading Sim")
+			print("")
+			print("")
+			print("")
+			self.sim.load(self.Variables['workingDir'])
+			self.sim.load_flux("Transmission",self.tranE)
 		
 		print("")
 		print("")
@@ -283,16 +319,8 @@ class Model:
 		print("")
 		print("")
 
-		#self.myRunFunction(self.monitorPts)
+		
 
-		"""
-		self.sim.run(
-			mp.at_beginning(mp.output_epsilon),
-			mp.at_every(50,mp.output_efield_z),
-			until_after_sources=3*self.sx*self.coreN
-			
-			)
-		"""
 		if self.Variables['savefields'] == True:
 			self.sim.run(
 				mp.at_beginning(mp.output_epsilon),
@@ -308,7 +336,14 @@ class Model:
 				)
 
 
-		
+
+		"""
+		Dumping fields and fluxes
+		"""
+		self.sim.dump(self.Variables['workingDir'])
+		self.sim.save_flux("Transmission",self.tranE)
+
+
 
 		flux_freqs = mp.get_flux_freqs(self.tranE)
 		tran_flux = mp.get_fluxes(self.tranE)
@@ -349,7 +384,6 @@ class Model:
 
 	def mkALLDIRS(self):
 		
-		self.Variables["workingDir"] = '../data/'+self.Variables["today"]+'/'+self.Variables['filename']+'/'
 
 		print('WD:',self.Variables["workingDir"])
 
@@ -358,7 +392,7 @@ class Model:
 		except:
 			print('AlreadyDir')
 
-		self.sim.use_output_directory(self.Variables["workingDir"])
+		
 
 
 	def SaveMeta(self):
