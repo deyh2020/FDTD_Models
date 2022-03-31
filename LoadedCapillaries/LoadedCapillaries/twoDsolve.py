@@ -20,8 +20,6 @@ if "nonormal" in args:
 
 
 
-
-
 if "justplot" in args:
     print("Just plotting")
     Solver.pltStructure()
