@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python ../LoadedCapillaries/twoDsolve.py DesktopBench 400
+python ../LoadedCapillaries/twoDsolve.py DesktopBench 500

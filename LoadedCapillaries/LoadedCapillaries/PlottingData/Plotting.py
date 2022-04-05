@@ -50,7 +50,8 @@ def Normalise(WL,PWR):
 plt.figure(figsize=(16,10))
 
 """Simulaiton Data"""
-simdatafile = "../data/2022-03-31/Laptop_Debug_1/test.pkl"
+
+simdatafile = "../data/2022-03-31/DesktopBench/test.pkl"
 with open(simdatafile,"rb") as file:
     data = pickle.load(file)
 
@@ -68,9 +69,8 @@ for i in range(len(flux_freqs)):
 
 wl = wl*1000
 
-plt.plot(wl,Ts,'x',label='SimulatonData')
+plt.plot(wl,Ts,label='SimulatonData')
 #plt.plot(wl,Ts,'x')
-
 
 
 """Experimental Data"""
@@ -83,17 +83,45 @@ normPWR = Normalise(WL,PWR)
 
 
 
-#plt.plot(WL,normPWR,label='Experimental Data')
+plt.plot(WL,normPWR,label='Experimental Data 1, 0.01nm res')
 
 
-print("Simulation Datapoints: "+ str(len(flux_freqs)))
-print("Experimental Datapoints: "+ str(len(WL)))
-print("Simulation DPP1nm: "+ str(len(flux_freqs)/(max(wl)-min(wl))))
-print("Experimental DPP1nm: "+ str(len(WL)/(max(WL)-min(WL))))
 
-print("dlam: " + str(max(wl)-min(wl)))
+experimentalData = "../../../TunableLaserGUI/data/Christian/2022-03-18/Best2.csv"
+dataDict = openData(experimentalData,3)
+WL  = dataDict['exp_'+str(2)][0]
+PWR = dataDict['exp_'+str(2)][1]
+normPWR = Normalise(WL,PWR)
 
-#plt.savefig("expvssim.pdf")
+
+
+
+plt.plot(WL,normPWR,label='Experimental Data 2, 1pm res')
+
+experimentalData = "../../../TunableLaserGUI/data/Christian/2022-03-18/Best3.csv"
+dataDict = openData(experimentalData,2)
+WL  = dataDict['exp_'+str(2)][0]
+PWR = dataDict['exp_'+str(2)][1]
+normPWR = Normalise(WL,PWR)
+
+
+
+
+plt.plot(WL,normPWR,label='Experimental Data 3, 1pm res')
+
+
+plt.xlabel("Wavelength / nm",fontsize=16)
+plt.ylabel("Normalised Power",fontsize=16)
+
+
+#print("Simulation Datapoints: "+ str(len(flux_freqs)))
+#print("Experimental Datapoints: "+ str(len(WL)))
+#print("Simulation DPP1nm: "+ str(len(flux_freqs)/(max(wl)-min(wl))))
+#print("Experimental DPP1nm: "+ str(len(WL)/(max(WL)-min(WL))))
+
+#print("dlam: " + str(max(wl)-min(wl)))
+
+plt.savefig("expvssim.pdf")
 plt.legend()
 plt.show()
 
