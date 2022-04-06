@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python ../LoadedCapillaries/twoDsolve.py DesktopBench 500
+python ../TwoDimension/LoadedCapillaries.py LaptopBench 0
