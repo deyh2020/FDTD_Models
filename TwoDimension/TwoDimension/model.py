@@ -5,7 +5,7 @@ import time
 import matplotlib.pyplot as plt
 
 import LoadedCapillaries.structure as LoadedCaps
-#import SidePolishedFibre.structure as SidePolish
+import SidePolishedFibre.structure as SidePolish
 
 
 class Model:
@@ -13,7 +13,7 @@ class Model:
     def __init__(self):
 
         #init constants
-        self.structure = LoadedCaps.structure()
+        self.structure = SidePolish.structure()
 
         
 
@@ -124,7 +124,7 @@ class Model:
 
     def PlotStructure(self):	
         self.Variables = self.structure.Variables
-        self.structure.buildNorm()  
+        self.structure.buildPolished()  
         self.structure.sources()
         self.structure.fluxDetectors()
         self.Buildsim(NormRun=False,Plot=True) 
