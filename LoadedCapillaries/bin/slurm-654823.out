@@ -1,0 +1,49 @@
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/LoadedCapillaries/bin/../LoadedCapillaries/twoDsolve.py", line 1, in <module>
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/LoadedCapillaries/bin/../LoadedCapillaries/twoDsolve.py", line 1, in <module>
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/LoadedCapillaries/bin/../LoadedCapillaries/twoDsolve.py", line 1, in <module>
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/LoadedCapillaries/bin/../LoadedCapillaries/twoDsolve.py", line 1, in <module>
+    import TwoDimensionTR.TwoDsolve as TwoDsolve
+  File "/share/nobackup/b5025250/FDTD_Models/LoadedCapillaries/LoadedCapillaries/TwoDimensionTR/TwoDsolve.py", line 1, in <module>
+    import TwoDimensionTR.TwoDsolve as TwoDsolve
+  File "/share/nobackup/b5025250/FDTD_Models/LoadedCapillaries/LoadedCapillaries/TwoDimensionTR/TwoDsolve.py", line 1, in <module>
+    import TwoDimensionTR.TwoDsolve as TwoDsolve
+  File "/share/nobackup/b5025250/FDTD_Models/LoadedCapillaries/LoadedCapillaries/TwoDimensionTR/TwoDsolve.py", line 1, in <module>
+    import TwoDimensionTR.TwoDsolve as TwoDsolve
+  File "/share/nobackup/b5025250/FDTD_Models/LoadedCapillaries/LoadedCapillaries/TwoDimensionTR/TwoDsolve.py", line 1, in <module>
+    import TwoDimensionTR.Model as M
+  File "/share/nobackup/b5025250/FDTD_Models/LoadedCapillaries/LoadedCapillaries/TwoDimensionTR/Model.py", line 5, in <module>
+    import TwoDimensionTR.Model as M
+    import TwoDimensionTR.Model as M
+  File "/share/nobackup/b5025250/FDTD_Models/LoadedCapillaries/LoadedCapillaries/TwoDimensionTR/Model.py", line 5, in <module>
+  File "/share/nobackup/b5025250/FDTD_Models/LoadedCapillaries/LoadedCapillaries/TwoDimensionTR/Model.py", line 5, in <module>
+    import TwoDimensionTR.Model as M
+  File "/share/nobackup/b5025250/FDTD_Models/LoadedCapillaries/LoadedCapillaries/TwoDimensionTR/Model.py", line 5, in <module>
+    import meep as mp
+    import meep as mp
+ModuleNotFoundError: No module named 'meep'
+    import meep as mp
+ModuleNotFoundError: No module named 'meep'
+ModuleNotFoundError: No module named 'meep'
+    import meep as mp
+ModuleNotFoundError: No module named 'meep'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/LoadedCapillaries/bin/../LoadedCapillaries/twoDsolve.py", line 1, in <module>
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/LoadedCapillaries/bin/../LoadedCapillaries/twoDsolve.py", line 1, in <module>
+    import TwoDimensionTR.TwoDsolve as TwoDsolve
+  File "/share/nobackup/b5025250/FDTD_Models/LoadedCapillaries/LoadedCapillaries/TwoDimensionTR/TwoDsolve.py", line 1, in <module>
+    import TwoDimensionTR.TwoDsolve as TwoDsolve
+  File "/share/nobackup/b5025250/FDTD_Models/LoadedCapillaries/LoadedCapillaries/TwoDimensionTR/TwoDsolve.py", line 1, in <module>
+    import TwoDimensionTR.Model as M
+  File "/share/nobackup/b5025250/FDTD_Models/LoadedCapillaries/LoadedCapillaries/TwoDimensionTR/Model.py", line 5, in <module>
+    import meep as mp
+ModuleNotFoundError: No module named 'meep'
+    import TwoDimensionTR.Model as M
+  File "/share/nobackup/b5025250/FDTD_Models/LoadedCapillaries/LoadedCapillaries/TwoDimensionTR/Model.py", line 5, in <module>
+    import meep as mp
+ModuleNotFoundError: No module named 'meep'
+srun: error: topsy-cn-2-14: tasks 0-5: Exited with exit code 1

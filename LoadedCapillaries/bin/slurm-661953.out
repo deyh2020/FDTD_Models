@@ -1,0 +1,182 @@
+/share/apps/meep/1.22.0/lib/python3.9/site-packages/meep/visualization.py:343: UserWarning: The frequency parameter of plot2D has been deprecated. Use the frequency key of the eps_parameters dictionary instead.
+  warnings.warn('The frequency parameter of plot2D has been deprecated. Use the frequency key of the eps_parameters dictionary instead.')
+/share/apps/meep/1.22.0/lib/python3.9/site-packages/meep/visualization.py:343: UserWarning: The frequency parameter of plot2D has been deprecated. Use the frequency key of the eps_parameters dictionary instead.
+  warnings.warn('The frequency parameter of plot2D has been deprecated. Use the frequency key of the eps_parameters dictionary instead.')
+Warning: grid volume is not an integer number of pixels; cell size will be rounded to nearest pixel.
+Using MPI version 3.1, 2 processes
+Argument List: ['../LoadedCapillaries/twoDsolve.py', 'MEEP_4_Quick', '0']
+Standard run
+WD: ../data/2022-04-06/MEEP_4_Quick/
+AlreadyDir
+Whole Sim Walltime: 2.384185791015625e-07 s
+
+
+
+Datapoints:-   60000
+
+
+
+0.6451612903225806
+0.024983344437042088
+60000
+     block, center = (0,0,0)
+          size (1e+20,1,1e+20)
+          axes (1,0,0), (0,1,0), (0,0,1)
+          dielectric constant epsilon diagonal = (2.0736,2.0736,2.0736)
+Warning: grid volume is not an integer number of pixels; cell size will be rounded to nearest pixel.
+
+
+Normalisation Run
+
+
+-----------
+Initializing structure...
+Splitting into 2 chunks by voxels
+time for choose_chunkdivision = 0.000492446 s
+Working in 2D dimensions.
+Computational cell is 87.1 x 11.8 x 0 with resolution 10
+     block, center = (0,0,0)
+          size (1e+20,1,1e+20)
+          axes (1,0,0), (0,1,0), (0,0,1)
+          dielectric constant epsilon diagonal = (2.0736,2.0736,2.0736)
+time for set_epsilon = 0.110912 s
+-----------
+MPB solved for frequency_1(0.4,0,0) = 0.325672 after 11 iters
+MPB solved for frequency_1(0.851154,0,0) = 0.635937 after 9 iters
+MPB solved for frequency_1(0.864706,0,0) = 0.645161 after 7 iters
+MPB solved for frequency_1(0.864707,0,0) = 0.645161 after 1 iters
+Meep: using output directory '../data/2022-04-06/MEEP_4_Quick/'
+on time step 521 (time=36.8403), 0.00772027 s/step
+on time step 1051 (time=74.3169), 0.00758517 s/step
+on time step 1581 (time=111.794), 0.00759438 s/step
+on time step 2111 (time=149.27), 0.00760774 s/step
+on time step 2641 (time=186.747), 0.00761949 s/step
+on time step 3171 (time=224.224), 0.00759536 s/step
+on time step 3699 (time=261.559), 0.0075765 s/step
+Meep progress: 278.6707824656184/525.6906625976562 = 53.0% done in 30.1s, 26.6s to go
+on time step 4221 (time=298.47), 0.00768314 s/step
+on time step 4751 (time=335.946), 0.00761619 s/step
+on time step 5281 (time=373.423), 0.00759118 s/step
+on time step 5811 (time=410.9), 0.00760782 s/step
+on time step 6331 (time=447.669), 0.00769601 s/step
+on time step 6861 (time=485.146), 0.00764075 s/step
+on time step 7391 (time=522.623), 0.00767053 s/step
+/share/apps/meep/1.22.0/lib/python3.9/site-packages/meep/visualization.py:343: UserWarning: The frequency parameter of plot2D has been deprecated. Use the frequency key of the eps_parameters dictionary instead.
+  warnings.warn('The frequency parameter of plot2D has been deprecated. Use the frequency key of the eps_parameters dictionary instead.')
+Warning: grid volume is not an integer number of pixels; cell size will be rounded to nearest pixel.
+run 0 finished at t = 525.7338918121981 (7435 timesteps)
+
+
+
+Datapoints:-   60000
+
+
+
+0.6451612903225806
+0.024983344437042088
+60000
+     cylinder, center = (0,0,0)
+          radius 40, height 1e+20, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (2.0736,2.0736,2.0736)
+     cylinder, center = (0,0,0)
+          radius 30, height 1e+20, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1.9881,1.9881,1.9881)
+     block, center = (0,-41.167,0)
+          size (1e+20,1,1e+20)
+          axes (1,0,0), (0,1,0), (0,0,1)
+          dielectric constant epsilon diagonal = (2.0736,2.0736,2.0736)
+/share/apps/meep/1.22.0/lib/python3.9/site-packages/meep/visualization.py:343: UserWarning: The frequency parameter of plot2D has been deprecated. Use the frequency key of the eps_parameters dictionary instead.
+  warnings.warn('The frequency parameter of plot2D has been deprecated. Use the frequency key of the eps_parameters dictionary instead.')
+Warning: grid volume is not an integer number of pixels; cell size will be rounded to nearest pixel.
+prevRunFalse
+
+
+Actual Run
+
+
+Previous SimTime = 0.0
+-----------
+Initializing structure...
+Splitting into 2 chunks by voxels
+time for choose_chunkdivision = 0.00071907 s
+Working in 2D dimensions.
+Computational cell is 87.1 x 93.8 x 0 with resolution 10
+     cylinder, center = (0,0,0)
+          radius 40, height 1e+20, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (2.0736,2.0736,2.0736)
+     cylinder, center = (0,0,0)
+          radius 30, height 1e+20, axis (0, 0, 1)
+          dielectric constant epsilon diagonal = (1.9881,1.9881,1.9881)
+     block, center = (0,-41.167,0)
+          size (1e+20,1,1e+20)
+          axes (1,0,0), (0,1,0), (0,0,1)
+          dielectric constant epsilon diagonal = (2.0736,2.0736,2.0736)
+time for set_epsilon = 1.91439 s
+-----------
+MPB solved for frequency_1(0.4,0,0) = 0.32606 after 10 iters
+MPB solved for frequency_1(0.850308,0,0) = 0.635755 after 7 iters
+MPB solved for frequency_1(0.864131,0,0) = 0.645161 after 5 iters
+MPB solved for frequency_1(0.864132,0,0) = 0.645161 after 2 iters
+Meep: using output directory '../data/2022-04-06/MEEP_4_Quick/'
+creating output file "../data/2022-04-06/MEEP_4_Quick//twoDsolve-eps-000000.00.h5"...
+on time step 278 (time=19.6576), 0.0144078 s/step
+on time step 561 (time=39.6687), 0.0141505 s/step
+on time step 850 (time=60.1041), 0.0140853 s/step
+on time step 1140 (time=80.6102), 0.0139819 s/step
+on time step 1429 (time=101.046), 0.0138582 s/step
+on time step 1714 (time=121.198), 0.0140403 s/step
+on time step 2000 (time=141.421), 0.0141334 s/step
+Meep progress: 149.90663761154806/462.97866259765624 = 32.4% done in 30.1s, 62.8s to go
+on time step 2290 (time=161.927), 0.0138792 s/step
+on time step 2580 (time=182.434), 0.0137969 s/step
+on time step 2870 (time=202.94), 0.0138486 s/step
+on time step 3160 (time=223.446), 0.0139471 s/step
+on time step 3450 (time=243.952), 0.0139954 s/step
+on time step 3740 (time=264.458), 0.0137974 s/step
+on time step 4030 (time=284.964), 0.0138442 s/step
+Meep progress: 302.712413025961/462.97866259765624 = 65.4% done in 60.1s, 31.8s to go
+on time step 4320 (time=305.47), 0.0139929 s/step
+on time step 4612 (time=326.118), 0.0137095 s/step
+on time step 4903 (time=346.694), 0.0137646 s/step
+on time step 5196 (time=367.413), 0.0136551 s/step
+on time step 5490 (time=388.202), 0.0138034 s/step
+on time step 5784 (time=408.991), 0.0136198 s/step
+on time step 6078 (time=429.78), 0.0136228 s/step
+on time step 6369 (time=450.356), 0.0137597 s/step
+Meep progress: 457.49808742769625/462.97866259765624 = 98.8% done in 90.1s, 1.1s to go
+run 0 finished at t = 463.01352032095133 (6548 timesteps)
+SimTime = 463.0135192871094
+Dumped structure to file: ../data/2022-04-06/MEEP_4_Quick/structure.h5 (True)
+Dumped fields to file: ../data/2022-04-06/MEEP_4_Quick/fields.h5 (True)
+creating output file "../data/2022-04-06/MEEP_4_Quick//twoDsolve-Transmission.h5"...
+Whole Sim Walltime: 155.37687182426453 s
+
+Field time usage:
+        connecting chunks: 0.15185 s +/- 0.000136698 s
+            time stepping: 42.6371 s +/- 1.15766 s
+       copying boundaries: 2.56402 s +/- 0.0523152 s
+    all-all communication: 0.00281179 s +/- 0.00221662 s
+        1-1 communication: 23.4664 s +/- 29.7251 s
+        outputting fields: 0.150762 s +/- 0.066776 s
+     Fourier transforming: 21.8788 s +/- 30.935 s
+          MPB mode solver: 0.00226932 s +/- 0.00233559 s
+          everything else: 0.652963 s +/- 0.057348 s
+         updating B field: 10.9901 s +/- 0.12078 s
+         updating H field: 0.625103 s +/- 0.0303916 s
+         updating D field: 10.9001 s +/- 0.448452 s
+         updating E field: 19.5721 s +/- 0.367664 s
+      boundary stepping B: 0.557862 s +/- 0.173674 s
+     boundary stepping WH: 0.0575539 s +/- 0.000444944 s
+     boundary stepping PH: 0.00401466 s +/- 0.000313868 s
+      boundary stepping H: 22.8936 s +/- 30.9432 s
+      boundary stepping D: 1.38383 s +/- 0.389383 s
+     boundary stepping WE: 0.0270019 s +/- 0.0042524 s
+     boundary stepping PE: 0.00442264 s +/- 0.000274882 s
+      boundary stepping E: 1.48101 s +/- 0.385904 s
+
+
+Elapsed run time = 155.7267 s
+creating epsilon from file "../data/2022-04-06/MEEP_4_Quick/structure.h5" (1)...
+creating fields output file "../data/2022-04-06/MEEP_4_Quick/fields.h5" (1)...
+creating epsilon from file "../data/2022-04-06/MEEP_4_Quick/structure.h5" (1)...
+creating fields output file "../data/2022-04-06/MEEP_4_Quick/fields.h5" (1)...
