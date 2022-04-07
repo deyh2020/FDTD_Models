@@ -8,7 +8,7 @@ now=$(date +"%Y-%m-%d")
 
 logpath="../data/$now/"
 mkdir -p $logpath
-logfile="$logpath/${SLURM_ARRAY_TASK_ID}.out"
+logfile="$logpath/log.out"
 
 
 
