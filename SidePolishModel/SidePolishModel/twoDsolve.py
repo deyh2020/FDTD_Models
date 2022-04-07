@@ -1,40 +1,32 @@
-import TwoDimensionTR.TwoDsolve as TwoDsolve
+import SidePolishModel.SidePolishModel.TwoDimensionTR.ModelOld as ModelOld
 import sys
 
 print ('Argument List:', str(sys.argv))
 
 args = sys.argv
 
-Solver = TwoDsolve.TwoDsolve()
-Solver.M.Pad = 100
+ModelOld = ModelOld.Model()
+
 
 try:
-    Solver.M.GAP      = float(sys.argv[1])
-    Solver.M.Pad      = float(sys.argv[2])
-    Solver.M.filename = str(sys.argv[3])
+    ModelOld.Variables['filename'] = str(sys.argv[1])
+    ModelOld.Variables['roundTrips'] = float(sys.argv[2])
 except:
     print("That didn't work")
 
-if "enablefluxregion" in args:
-    print("enabling flux region")
-    Solver.M.FluxRegion = True
-
 if "nonormal" in args:
     print("not normalising")
-    Solver.M.normal = False
-
-if "squaredips" in args:
-    print("Using square dips")
-    Solver.M.angle = 90
+    Solver.M.Variables['normal'] = False
 
 
 
 if "justplot" in args:
     print("Just plotting")
     Solver.pltStructure()
-elif "square" in args:
-    print("Sqr bubbles")
-    Solver.sqrBubbles()
+elif "debug" in args:
+    print("Debug Run")
+    Solver.M.Variables['debug'] = True
+    Solver.run()
 else:
     print("Standard run")
     Solver.run()
