@@ -2,10 +2,16 @@
 #SBATCH --nodes=1
 #SBATCH -t 00:15:00         
 #SBATCH --ntasks=6
-#SBATCH --exclusive
+
+
+now=$(date +"%Y-%m-%d")
+
+logpath="../data/$now/"
+mkdir -p $logpath
+logfile="$logpath/${SLURM_ARRAY_TASK_ID}.out"
 
 
 
 module load meep
 
-srun python3 ../LoadedCapillaries/twoDsolve.py MEEP_6_Quick_exclusive 0
+srun python3 ../LoadedCapillaries/twoDsolve.py MEEP_6_Quick 0 > ${logfile}
