@@ -4,7 +4,7 @@
 #SBATCH --ntasks=18
 #SBATCH --exclusive
 
-myfilename = "MEEP_18"
+myfilename="MEEP_18"
 now=$(date +"%Y-%m-%d")
 
 logpath="../data/$now/$myfilename/"

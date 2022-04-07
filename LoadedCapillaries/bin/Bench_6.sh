@@ -4,12 +4,13 @@
 #SBATCH --ntasks=6
 #SBATCH --exclusive
 
-myfilename = "MEEP_6"
+myfilename="MEEP_6"
 now=$(date +"%Y-%m-%d")
 
 logpath="../data/$now/$myfilename/"
 mkdir -p $logpath
 logfile="$logpath/log.out"
+
 
 module load meep
 
