@@ -2,7 +2,7 @@
 #SBATCH -t 02:00:00          
 #SBATCH --ntasks=36
 
-myfilename="Bench_36"
+myfilename="SidePolish_Bench_36"
 now=$(date +"%Y-%m-%d")
 
 logpath="../data/$now/$myfilename/"

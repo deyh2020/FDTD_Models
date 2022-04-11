@@ -13,10 +13,12 @@ class Model:
     def LoadedCap(self):
         #init constants
         self.structure = LoadedCaps.structure()
+        self.ModelType = "LoadedCap"
 
     def SidePolish(self):
         #init constants
         self.structure = SidePolish.structure()
+        self.ModelType = "SidePolish"
         
     def RunTRspectrum(self):
 
