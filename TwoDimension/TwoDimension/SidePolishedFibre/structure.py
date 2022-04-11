@@ -22,7 +22,7 @@ class structure:
             'angle':90,#121.4,
             'CladLeft':0 ,
             'Depth':40,
-            'Width':100,
+            'Width':322,
             'GAP':500,
             
             'BubblesNum':2 ,
