@@ -23,13 +23,13 @@ class structure:
             'CladLeft':0 ,
             'Depth':40,
             'Width':100,
-            'GAP':50,
+            'GAP':500,
             
             'BubblesNum':2 ,
             'BubblesType':'sqr',
             'FibreType':'polished',
 			#Simulation area Properties
-			'PAD':200,
+			'PAD':1000,
 			"res":10.000/1.0,    # would usually be 10px per wl but our smallest waveguide is 1um thick
 			"dpml":1.55,
 			#Simulation source Properties
@@ -61,8 +61,8 @@ class structure:
         #without a WGM.
         self.Objlist = []
         
-        self.Variables["sx"] = self.Variables['GAP']+self.Variables['Width']+2*self.Variables['PAD']+2*self.Variables['dpml']
-        self.Variables["sy"] = 2.3*self.Variables['R2'] + 2*self.Variables['dpml']
+        self.Variables["sx"] = self.Variables['GAP']    +   2*self.Variables['Width']   +   self.Variables['PAD']   +   2*self.Variables['dpml'] + 100
+        self.Variables["sy"] = 2.3*self.Variables['R2'] +   2*self.Variables['dpml']
 		
         self.cell_size = mp.Vector3(self.Variables["sx"],self.Variables["sy"],0)
 
@@ -95,7 +95,7 @@ class structure:
         #without a WGM.
         self.Objlist = []
         
-        self.Variables["sx"] = self.Variables['GAP']+self.Variables['Width']+2*self.Variables['PAD']+2*self.Variables['dpml']
+        self.Variables["sx"] = self.Variables['GAP']    +   2*self.Variables['Width']   +   self.Variables['PAD']   +   2*self.Variables['dpml'] + 100
         self.Variables["sy"] = 2.3*self.Variables['R2'] + 2*self.Variables['dpml']
 		
         self.cell_size = mp.Vector3(self.Variables["sx"],self.Variables["sy"],0)
@@ -138,13 +138,13 @@ class structure:
                 ]
 
 
-        self.LH = mp.Prism(center=mp.Vector3(x=-self.Variables['GAP']/2 - TL/2,y=-D/2+self.Variables['R1']+self.Variables['CladLeft'],z=0),
+        self.LH = mp.Prism(center=mp.Vector3(       x=-self.Variables['GAP']/2 - TL/2 - self.Variables['PAD']/2      ,y=-D/2+self.Variables['R1']+self.Variables['CladLeft'],z=0),
                             vertices = verts,
                             material=mp.Medium(index=self.Variables['nAir']),
                             height=1
                             )
 
-        self.RH = mp.Prism(center=mp.Vector3(x=self.Variables['GAP']/2 + TL/2,y=-D/2+self.Variables['R1']+self.Variables['CladLeft'],z=0),
+        self.RH = mp.Prism(center=mp.Vector3(       x=self.Variables['GAP']/2 + TL/2 - self.Variables['PAD']/2       ,y=-D/2+self.Variables['R1']+self.Variables['CladLeft'],z=0),
                             vertices = verts,
                             material=mp.Medium(index=self.Variables['nAir']),
                             height=1
