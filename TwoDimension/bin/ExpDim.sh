@@ -11,4 +11,4 @@ logfile="$logpath/log.out"
 
 module load meep
 
-srun python3 ../LoadedCapillaries/twoDsolve.py ${myfilename} 1000 6.0 > ${logfile}
+srun python3 ../TwoDimension/LoadedCapillaries.py ${myfilename} 1000 6.0 > ${logfile}
