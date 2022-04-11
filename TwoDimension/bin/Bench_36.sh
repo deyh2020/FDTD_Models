@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -t 02:00:00          
+#SBATCH -t 04:00:00          
 #SBATCH --ntasks=36
 
 myfilename="SidePolish_Bench_36"
