@@ -9,7 +9,7 @@ Model = m.Model()
 Model.LoadedCap()
 
 try:
-    Model.structure.Variables['filename']   = str(sys.argv[1])
+    Model.structure.Variables['filename']   = "LoadedCap_" + str(sys.argv[1])
     Model.structure.Variables['roundTrips'] = float(sys.argv[2])
     Model.structure.Variables['WallThick'] = float(sys.argv[3])
 except:

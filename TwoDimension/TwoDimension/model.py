@@ -102,10 +102,10 @@ class Model:
 
         fig,ax = plt.subplots(dpi=150)
         if NormRun:
-            self.sim.plot2D(ax=ax,eps_parameters={'alpha':0.8, 'interpolation':'none'},frequency=0)
+            self.sim.plot2D(ax=ax,eps_parameters={'alpha':0.8, 'interpolation':'none'})
             plt.savefig(self.Variables["workingDir"]+"NormModel_" + str(self.Variables["dataFile"]) +".pdf")
         else:
-            self.sim.plot2D(ax=ax,eps_parameters={'alpha':0.8, 'interpolation':'none'},frequency=0)
+            self.sim.plot2D(ax=ax,eps_parameters={'alpha':0.8, 'interpolation':'none'})
             plt.savefig(self.Variables["workingDir"]+"Model_" + str(self.Variables["dataFile"]) +".pdf")
         
 
@@ -166,20 +166,27 @@ class Model:
             print("")
             print("")
 
-
+        
         if self.Variables['savefields'] == True:
             self.sim.run(
                 mp.at_beginning(mp.output_epsilon),
                 mp.at_every(200,mp.output_efield_z),
-                until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + np.pi*self.Variables['capD']*self.Variables['roundTrips'])
+                until_after_sources=self.Variables['nClad']* (self.Variables['sx']/2 + np.pi*self.Variables['capD']*self.Variables['roundTrips'])
                 
                 )
         else:
-            self.sim.run(	
-                mp.at_beginning(mp.output_epsilon),
-                until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + np.pi*self.Variables['capD']*self.Variables['roundTrips'])
-                
-                )
+            if self.ModelType == "SidePolish":
+                self.sim.run(	
+                    mp.at_beginning(mp.output_epsilon),
+                    until_after_sources=self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+                    
+                    )
+            elif self.ModelType == "LoadedCap":
+                self.sim.run(	
+                    mp.at_beginning(mp.output_epsilon),
+                    until_after_sources=self.Variables['nClad']* (self.Variables['sx']/2 + np.pi*self.Variables['capD']*self.Variables['roundTrips'])
+                    
+                    )
 
         print("SimTime = " + str(self.sim.round_time() ))
 
@@ -225,18 +232,3 @@ class Model:
         plt.plot(wl,Ts,label='transmittance')
         plt.xlabel("wavelength (μm)")
         plt.savefig(self.Variables['workingDir']+"TransRef_" + str(int(self.Variables['SimTime'])) + ".pdf")
-
-    def PDMSindex(self):
-
-        self.PDMStemp = np.array([27.04200613, 30.04708872, 40.09978324, 50.0485836, 60.10202556, 70.05194708, 80.00074744])
-        self.nPDMS    = np.array([1.410413147,1.409271947,1.405629718,1.4019877,1.398453453,1.394973372,1.391331424])
-        self.PDMSfit = np.polyfit(self.PDMStemp,self.nPDMS,deg=1)
-
-
-
-
-    def Silicaindex(self):
-
-        self.Silicatemp = np.array([22.83686643,40.36719542,70.32692845,103.3346833])
-        self.nSilica    = np.array([1.445300107,1.44555516,1.445847903,1.445958546])
-        self.SilicaFIT = np.polyfit(self.Silicatemp,self.nSilica,deg=1)

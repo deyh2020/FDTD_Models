@@ -9,7 +9,7 @@ Model = m.Model()
 Model.SidePolish()
 
 try:
-    Model.structure.Variables['filename']   = str(sys.argv[1])
+    Model.structure.Variables['filename']   = "SidePolish_" + str(sys.argv[1])
     Model.structure.Variables['roundTrips'] = float(sys.argv[2])
 except:
     print("That didn't work")

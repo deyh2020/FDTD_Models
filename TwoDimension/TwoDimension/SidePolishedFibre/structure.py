@@ -9,11 +9,10 @@ class structure:
 			#programming vars 
 			"debug":False,
 			"prevRun":False,
-			"SimTime":0.0,
 			#refractive indexes
 			"nAir": 1.000,
 			"nCore":1.445,
-			"nClad":1.3,
+			"nClad":1.440,
 			"nPDMS":1.410,
 			#Device Dimentions
 			"R1":4.1,
@@ -182,5 +181,20 @@ class structure:
         self.detector = mp.FluxRegion(center=mp.Vector3((self.Variables['sx']/2) - 2*self.Variables['dpml'] ,0,0), 
                 size=mp.Vector3(0,12,0))
             
+            
+    def PDMSindex(self):
+
+        self.PDMStemp = np.array([27.04200613, 30.04708872, 40.09978324, 50.0485836, 60.10202556, 70.05194708, 80.00074744])
+        self.nPDMS    = np.array([1.410413147,1.409271947,1.405629718,1.4019877,1.398453453,1.394973372,1.391331424])
+        self.PDMSfit = np.polyfit(self.PDMStemp,self.nPDMS,deg=1)
+
+
+
+
+    def Silicaindex(self):
+
+        self.Silicatemp = np.array([22.83686643,40.36719542,70.32692845,103.3346833])
+        self.nSilica    = np.array([1.445300107,1.44555516,1.445847903,1.445958546])
+        self.SilicaFIT = np.polyfit(self.Silicatemp,self.nSilica,deg=1)
             
         

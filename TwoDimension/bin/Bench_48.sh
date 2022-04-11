@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH -t 02:00:00          
-#SBATCH --ntasks=24
+#SBATCH --ntasks=48
 
-myfilename="Bench_24"
+myfilename="Bench_48"
 now=$(date +"%Y-%m-%d")
 
 logpath="../data/$now/$myfilename/"
