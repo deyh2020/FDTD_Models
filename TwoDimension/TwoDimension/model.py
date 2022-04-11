@@ -10,11 +10,73 @@ import SidePolishedFibre.structure as SidePolish
 
 class Model:
 
-    def __init__(self):
+    def LoadedCap(self):
+        #init constants
+        self.structure = LoadedCaps.structure()
 
+    def SidePolish(self):
         #init constants
         self.structure = SidePolish.structure()
+        
+    def RunTRspectrum(self):
 
+        #Sort out if there's been a previous run and make directories.
+        self.Variables = self.structure.Variables
+        self.mkALLDIRS()
+        self.SimRanBefore()
+        
+                
+        #normalisation run
+        self.normRun()
+
+        #Actual run
+        self.structure.buildStructure()  
+        self.structure.sources()
+        self.structure.fluxDetectors()
+        self.Buildsim(NormRun=False,Plot=True) 
+
+        self.AutoRun()
+        self.sim.print_times()
+
+    def PlotStructure(self):	
+        self.Variables = self.structure.Variables
+        self.structure.buildStructure()  
+        self.structure.sources()
+        self.structure.fluxDetectors()
+        self.Buildsim(NormRun=False,Plot=True) 
+        plt.show()
+
+    
+    def SimRanBefore(self):
+        #check whether fields file exists.
+        WD = self.Variables["workingDir"]
+        print("")
+        print("")
+        print(WD + "fields.h5")
+        print("")
+        print("")
+        
+        if os.path.exists(WD + "fields.h5"):
+            print("Path exists, trying to open previous vars")
+            try:
+                #try to reload variables
+                with open(self.Variables['workingDir'] + "metadata.json") as json_file:
+                    self.Variables = json.load(json_file)
+            except:
+                print("Failed to load old vars from .json")
+            self.Variables["prevRun"] = True 
+            self.Variables["workingDir"] = WD
+            print("Variables loaded")
+            
+    def mkALLDIRS(self):
+        self.Variables["workingDir"] = '../data/'+self.Variables["today"]+'/'+self.Variables['filename']+'/'
+        try:
+            os.makedirs(self.Variables["workingDir"])
+        except:
+            print('AlreadyDir')
+    
+            
+        
         
 
 
@@ -45,27 +107,7 @@ class Model:
         else:
             self.sim.plot2D(ax=ax,eps_parameters={'alpha':0.8, 'interpolation':'none'},frequency=0)
             plt.savefig(self.Variables["workingDir"]+"Model_" + str(self.Variables["dataFile"]) +".pdf")
-
-    def mkALLDIRS(self):
-        self.structure.Variables["workingDir"] = '../data/'+self.Variables["today"]+'/'+self.Variables['filename']+'/'
-        try:
-            os.makedirs(self.Variables["workingDir"])
-        except:
-            print('AlreadyDir')
-    
-    def SimRanBefore(self):
-        #check whether fields file exists.
-        WD = self.Variables["workingDir"]
-        if os.path.exists(WD + "fields.h5"):
-            try:
-                #try to reload variables
-                with open(self.Variables['workingDir'] + "metadata.json") as json_file:
-                    self.Variables = json.load(json_file)
-            except:
-                print("Failed to load old vars from .json")
-            self.Variables["prevRun"] = True 
-            self.Variables["workingDir"] = WD
-            print("Variables loaded")
+        
 
 
     def normRun(self):
@@ -103,32 +145,7 @@ class Model:
         else:
             "not normaling anyways rip"
 
-    def RunTRspectrum(self):
 
-        #Sort out if there's been a previous run and make directories.
-        self.Variables = self.structure.Variables
-        self.SimRanBefore()
-        self.mkALLDIRS()
-                
-        #normalisation run
-        self.normRun()
-
-        #Actual run
-        self.structure.buildFilledCapillary()  
-        self.structure.sources()
-        self.structure.fluxDetectors()
-        self.Buildsim(NormRun=False,Plot=True) 
-
-        self.AutoRun()
-        self.sim.print_times()
-
-    def PlotStructure(self):	
-        self.Variables = self.structure.Variables
-        self.structure.buildPolished()  
-        self.structure.sources()
-        self.structure.fluxDetectors()
-        self.Buildsim(NormRun=False,Plot=True) 
-        plt.show()
     
     def AutoRun(self):
 

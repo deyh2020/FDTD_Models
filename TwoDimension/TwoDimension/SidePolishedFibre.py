@@ -6,18 +6,19 @@ print ('Argument List:', str(sys.argv))
 args = sys.argv
 
 Model = m.Model()
-Model.LoadedCap()
+Model.SidePolish()
 
 try:
     Model.structure.Variables['filename']   = str(sys.argv[1])
     Model.structure.Variables['roundTrips'] = float(sys.argv[2])
-    Model.structure.Variables['WallThick'] = float(sys.argv[3])
 except:
     print("That didn't work")
 
-if "solidCore" in args:
-    print("Solid Clad Core")
-    Model.structure.Variables['nPDMS'] = Model.structure.Variables['nClad']
+"""
+if "enablefluxregion" in args:
+    print("enabling flux region")
+    Solver.M.FluxRegion = True
+"""
 
 if "justplot" in args:
     print("Just plotting")

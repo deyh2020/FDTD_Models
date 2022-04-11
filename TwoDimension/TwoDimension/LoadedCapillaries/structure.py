@@ -17,9 +17,9 @@ class structure:
 			"nPDMS":1.410,
 			#Device Dimentions
 			"taperD":1.000,
-			"capD":80,
-			"WallThick":10.000,
-			"GAP":0.667,
+			"capD":63,          #updated from microscope measurements
+			"WallThick":9.000,  #updated from microscope measurements
+			"GAP":0.667,        #from previous simulation experiments, probably needs optimised.
 			#Simulation area Properties
 			"PAD":2.000,
 			"res":10.000/1.0,    # would usually be 10px per wl but our smallest waveguide is 1um thick
@@ -70,7 +70,7 @@ class structure:
         self.Objlist.extend([Taper])
 
 
-    def buildFilledCapillary(self):
+    def buildStructure(self):
         #Build the whole device, I've set it up so the objects are added to a list, note the order in the list
         #corrisponds to the layer they're inserted, this equates to the last item in the list being ontop.
         self.Objlist = []

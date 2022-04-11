@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python ../TwoDimension/LoadedCapillaries.py LaptopBench_sidePolish 0
+mpirun -np 4 python ../TwoDimension/LoadedCapillaries.py LaptopDebug 1 6.0

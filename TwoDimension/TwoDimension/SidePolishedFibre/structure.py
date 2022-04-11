@@ -91,7 +91,7 @@ class structure:
         self.Objlist.extend([self.Coating,self.Clad,self.Core])
 
 
-    def buildPolished(self):
+    def buildStructure(self):
         #Build a structure that represents a system without the device, i.e here i've just built a waveguide 
         #without a WGM.
         self.Objlist = []
