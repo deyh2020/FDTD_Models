@@ -2,7 +2,15 @@
 #SBATCH --nodes=1
 #SBATCH -t 02:00:00          
 #SBATCH --ntasks=24
+#SBATCH --exclusive
 
-module load meep/1.22.0
+myfilename="MEEP_24"
+now=$(date +"%Y-%m-%d")
 
-srun python3 ../LoadedCapillaries/twoDsolve.py MEEP_24 10
+logpath="../data/$now/$myfilename/"
+mkdir -p $logpath
+logfile="$logpath/log.out"
+
+module load meep
+
+srun python3 ../LoadedCapillaries/twoDsolve.py ${myfilename} 10 > ${logfile}
