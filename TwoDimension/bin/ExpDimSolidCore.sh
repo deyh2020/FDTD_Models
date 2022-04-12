@@ -1,6 +1,8 @@
 #!/bin/bash
-#SBATCH -t 20:00:00          
+#SBATCH -t 12:00:00          
 #SBATCH --ntasks=18
+#SBATCH --nodes=1
+
 
 myfilename="SolidCore"
 now=$(date +"%Y-%m-%d")

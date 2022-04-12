@@ -173,20 +173,20 @@ class Model:
             self.sim.run(
                 mp.at_beginning(mp.output_epsilon),
                 mp.at_every(200,mp.output_efield_z),
-                until_after_sources=self.Variables['nClad']* (self.Variables['sx']/2 + np.pi*self.Variables['capD']*self.Variables['roundTrips'])
+                until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + np.pi*self.Variables['capD']*self.Variables['roundTrips'])
                 
                 )
         else:
             if self.ModelType == "SidePolish":
                 self.sim.run(	
                     mp.at_beginning(mp.output_epsilon),
-                    until_after_sources=self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+                    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
                     
                     )
             elif self.ModelType == "LoadedCap":
                 self.sim.run(	
                     mp.at_beginning(mp.output_epsilon),
-                    until_after_sources=self.Variables['nClad']* (self.Variables['sx']/2 + np.pi*self.Variables['capD']*self.Variables['roundTrips'])
+                    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + np.pi*self.Variables['capD']*self.Variables['roundTrips'])
                     
                     )
 

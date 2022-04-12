@@ -1,1 +1,1 @@
-rsync -aP --exclude='*.git*' --exclude='*.h5' -e 'ssh -A -J b5025250@unix.ncl.ac.uk' b5025250@topsy-login:/share/nobackup/b5025250/FDTD_Models/TwoDimension/data ../
+rsync -aP --exclude='*.git*' -e 'ssh -A -J b5025250@unix.ncl.ac.uk' b5025250@topsy-login:/share/nobackup/b5025250/FDTD_Models/TwoDimension/data ../

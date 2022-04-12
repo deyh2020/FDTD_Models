@@ -1,6 +1,8 @@
 #!/bin/bash
 #SBATCH -t 20:00:00          
 #SBATCH --ntasks=18
+#SBATCH --nodes=1
+
 
 myfilename="ExperimentalDimentions"
 now=$(date +"%Y-%m-%d")

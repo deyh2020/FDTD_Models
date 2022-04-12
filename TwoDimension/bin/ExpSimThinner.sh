@@ -1,6 +1,8 @@
 #!/bin/bash
-#SBATCH -t 20:00:00          
+#SBATCH -t 15:00:00          
 #SBATCH --ntasks=18
+#SBATCH --nodes=1
+
 
 myfilename="3umThick"
 now=$(date +"%Y-%m-%d")
