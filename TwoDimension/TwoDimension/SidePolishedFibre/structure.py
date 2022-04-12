@@ -9,6 +9,7 @@ class structure:
 			#programming vars 
 			"debug":False,
 			"prevRun":False,
+            "SimTime":0.0,
 			#refractive indexes
 			"nAir": 1.000,
 			"nCore":1.445,
