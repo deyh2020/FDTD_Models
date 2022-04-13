@@ -14,7 +14,7 @@ class structure:
 			"nAir": 1.000,
 			"nCore":1.445,
 			"nClad":1.440,
-			"nPDMS":1.410,
+			"nPerovskite":2.5,
 			#Device Dimentions
 			"taperD":1.000,
 			"capD":63,          #updated from microscope measurements
@@ -95,7 +95,7 @@ class structure:
             radius=(self.Variables["capD"] - (self.Variables['WallThick']*2))/2,
             height=mp.inf,
             axis=mp.Vector3(0,0,1),
-            material=mp.Medium(index=self.Variables['nPDMS'])
+            material=mp.Medium(index=self.Variables['nPerovskite'])
             )
 
         self.taperYpos = -(self.Variables["capD"]/2.0 + self.Variables["GAP"] + self.Variables["taperD"]/2)

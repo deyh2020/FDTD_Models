@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python ../TwoDimension/SidePolishedFibre.py LaptopDebug 1 justplot
+python ../TwoDimension/LoadedCapillaries.py LaptopDebug 1 justplot
