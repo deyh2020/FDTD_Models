@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH -t 12:00:00          
 #SBATCH --ntasks=18
-#SBATCH --nodes=1
+
 
 
 myfilename="SolidCore"

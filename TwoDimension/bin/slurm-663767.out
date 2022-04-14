@@ -1,0 +1,486 @@
+Warning: grid volume is not an integer number of pixels; cell size will be rounded to nearest pixel.
+Warning: grid volume is not an integer number of pixels; cell size will be rounded to nearest pixel.
+Warning: grid volume is not an integer number of pixels; cell size will be rounded to nearest pixel.
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+Traceback (most recent call last):
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+KeyError: 'SimTime'
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    Model.RunTRspectrum()
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+    Model.RunTRspectrum()
+KeyError: 'SimTime'
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    self.AutoRun()
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+KeyError: 'SimTime'
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    Model.RunTRspectrum()
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    Model.RunTRspectrum()
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+KeyError: 'SimTime'
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+KeyError: 'SimTime'
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+KeyError: 'SimTime'
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+Traceback (most recent call last):
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/bin/../TwoDimension/SidePolishedFibre.py", line 28, in <module>
+    Model.RunTRspectrum()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 40, in RunTRspectrum
+    self.AutoRun()
+  File "/share/nobackup/b5025250/FDTD_Models/TwoDimension/TwoDimension/model.py", line 183, in AutoRun
+    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+KeyError: 'SimTime'
+srun: error: topsy-cn-1-1: tasks 20-39: Exited with exit code 1
+srun: error: topsy-cn-1-2: tasks 40-59: Exited with exit code 1
+srun: error: topsy-cn-1-0: tasks 0-19: Exited with exit code 1
