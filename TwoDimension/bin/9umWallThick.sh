@@ -4,7 +4,7 @@
 #SBATCH --nodes=1
 
 
-myfilename="ExperimentalDimentions"
+myfilename="9umWallThick"
 now=$(date +"%Y-%m-%d")
 
 logpath="../data/$now/$myfilename/"
