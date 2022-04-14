@@ -20,7 +20,7 @@ class structure:
             "R2":62.5,
             "CladLeft":1.0,
 			##Resonator Dimentions
-            'angle':90,#121.4,
+            'angle':121.4,
             'CladLeft':0 ,
             'Depth':40,
             'Width':322,
@@ -45,7 +45,8 @@ class structure:
 			"filename":'test',
 			"dataFile":'test',
 			"roundTrips":1.00,    #relates to how long the sim will run relative to orbits of the WGM
-			#Flags
+			"SaveFieldsatEnd":True,
+            #Flags
 			"normal":True,
 			"savefields":False
 		}

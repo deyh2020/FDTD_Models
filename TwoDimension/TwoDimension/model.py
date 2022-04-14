@@ -180,7 +180,7 @@ class Model:
             if self.ModelType == "SidePolish":
                 self.sim.run(	
                     mp.at_beginning(mp.output_epsilon),
-                    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx']/2 + self.Variables['GAP']*self.Variables['roundTrips'])
+                    until_after_sources=self.Variables['SimTime'] + self.Variables['nClad']* (self.Variables['sx'] + self.Variables['GAP']*self.Variables['roundTrips'])
                     
                     )
             elif self.ModelType == "LoadedCap":
@@ -196,9 +196,10 @@ class Model:
         """
         Dumping fields and fluxes
         """
-        self.sim.dump(self.Variables['workingDir'])
-        self.sim.save_flux("Transmission",self.tranE)
-        self.Variables['SimTime'] = self.sim.round_time()
+        if self.Variables['SaveFieldsatEnd']:
+            self.sim.dump(self.Variables['workingDir'])
+            self.sim.save_flux("Transmission",self.tranE)
+            self.Variables['SimTime'] = self.sim.round_time()
 
 
         flux_freqs = mp.get_flux_freqs(self.tranE)

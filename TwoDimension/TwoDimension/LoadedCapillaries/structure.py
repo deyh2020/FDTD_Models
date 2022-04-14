@@ -36,7 +36,8 @@ class structure:
 			"filename":'test',
 			"dataFile":'test',
 			"roundTrips":1.00,    #relates to how long the sim will run relative to orbits of the WGM
-			#Flags
+			"SaveFieldsatEnd":True,
+            #Flags
 			"normal":True,
 			"savefields":False
 		}

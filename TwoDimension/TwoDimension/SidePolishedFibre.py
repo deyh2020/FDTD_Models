@@ -20,6 +20,9 @@ if "enablefluxregion" in args:
     Solver.M.FluxRegion = True
 """
 
+if "square" in args:
+    Model.structure.Variables['angle'] = 90
+
 if "justplot" in args:
     print("Just plotting")
     Model.PlotStructure()

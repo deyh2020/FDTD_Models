@@ -1,8 +1,8 @@
 #!/bin/bash
-#SBATCH -t 04:00:00          
+#SBATCH -t 10:00:00          
 #SBATCH --ntasks=36
 
-myfilename="SidePolish_Bench_36"
+myfilename="SidePolish_Angled500um"
 now=$(date +"%Y-%m-%d")
 
 logpath="../data/$now/$myfilename/"
@@ -11,4 +11,4 @@ logfile="$logpath/log.out"
 
 module load meep
 
-srun python3 ../TwoDimension/SidePolishedFibre.py ${myfilename} 1 > ${logfile}
+srun python3 ../TwoDimension/SidePolishedFibre.py ${myfilename} 40 > ${logfile}
