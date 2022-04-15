@@ -3,9 +3,8 @@
 #SBATCH --ntasks=36
 
 myfilename="SidePolish_Angled500um"
-now=$(date +"%Y-%m-%d")
 
-logpath="../data/$now/$myfilename/"
+logpath="../data/2022-04-14/$myfilename/"
 mkdir -p $logpath
 logfile="$logpath/log.out"
 

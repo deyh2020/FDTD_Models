@@ -5,7 +5,6 @@
 
 
 myfilename="SolidCore"
-now=$(date +"%Y-%m-%d")
 
 logpath="../data/2022-04-14/$myfilename/"
 mkdir -p $logpath

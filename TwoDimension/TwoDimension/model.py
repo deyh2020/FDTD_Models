@@ -196,6 +196,7 @@ class Model:
         """
         Dumping fields and fluxes
         """
+        
         if self.Variables['SaveFieldsatEnd']:
             self.sim.dump(self.Variables['workingDir'])
             self.sim.save_flux("Transmission",self.tranE)
