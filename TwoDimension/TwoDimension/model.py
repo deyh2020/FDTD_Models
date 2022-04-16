@@ -24,10 +24,8 @@ class Model:
 
         #Sort out if there's been a previous run and make directories.
         self.Variables = self.structure.Variables
-        self.mkALLDIRS()
         self.SimRanBefore()
-        
-                
+         
         #normalisation run
         self.normRun()
 
@@ -51,12 +49,7 @@ class Model:
     
     def SimRanBefore(self):
         #check whether fields file exists.
-        WD = self.Variables["workingDir"]
-        print("")
-        print("")
-        print(WD + "fields.h5")
-        print("")
-        print("")
+        WD = self.Variables['workingDir']
         
         if os.path.exists(WD + "fields.h5"):
             print("Path exists, trying to open previous vars")
@@ -67,19 +60,9 @@ class Model:
             except:
                 print("Failed to load old vars from .json")
             self.Variables["prevRun"] = True 
-            self.Variables["workingDir"] = WD
+            self.Variables['workingDir'] = WD
             print("Variables loaded")
             
-    def mkALLDIRS(self):
-        self.Variables["workingDir"] = '../data/'+self.Variables["today"]+'/'+self.Variables['filename']+'/'
-        try:
-            os.makedirs(self.Variables["workingDir"])
-        except:
-            print('AlreadyDir')
-    
-            
-        
-        
 
 
     def Buildsim(self,Plot=False,NormRun=False):   # builds sim and plots structure to file 
@@ -105,10 +88,10 @@ class Model:
         fig,ax = plt.subplots(dpi=150)
         if NormRun:
             self.sim.plot2D(ax=ax,eps_parameters={'alpha':0.8, 'interpolation':'none'})
-            plt.savefig(self.Variables["workingDir"]+"NormModel_" + str(self.Variables["dataFile"]) +".pdf")
+            plt.savefig(self.Variables["workingDir"]+"NormalModel.pdf")
         else:
             self.sim.plot2D(ax=ax,eps_parameters={'alpha':0.8, 'interpolation':'none'})
-            plt.savefig(self.Variables["workingDir"]+"Model_" + str(self.Variables["dataFile"]) +".pdf")
+            plt.savefig(self.Variables["workingDir"]+"Model.pdf")
         
 
 
@@ -139,8 +122,8 @@ class Model:
 
 
         elif self.Variables["prevRun"] == True:
-            #load pickless
-            with open(self.Variables["workingDir"] + self.Variables['dataFile'] + ".pkl","rb") as file:
+            #load pickless (for normal transmission spectrum)
+            with open(self.Variables["workingDir"] + "Data.pkl","rb") as file:
                 data = pickle.load(file)
             self.norm_tran = data['norm_tran']
             print("Loaded up pickles")
@@ -213,7 +196,7 @@ class Model:
         if self.Variables["normal"] == True:
             Data['norm_tran'] = self.norm_tran
 
-        with open(self.Variables['workingDir'] + self.Variables['dataFile'] + ".pkl", 'wb') as file:
+        with open(self.Variables['workingDir'] + "Data.pkl", 'wb') as file:
             pickle.dump(Data,file)
 
         self.Variables['CPUS'] = str(self.sim.num_chunks)

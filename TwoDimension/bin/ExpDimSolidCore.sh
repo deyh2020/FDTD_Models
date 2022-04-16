@@ -4,12 +4,16 @@
 
 
 
-myfilename="SolidCore"
 
-logpath="../data/2022-04-14/$myfilename/"
-mkdir -p $logpath
-logfile="$logpath/log.out"
+expName="SolidCore"
+
+#now=$(date +"%Y-%m-%d")
+now="2022-04-14"
+workingDir="../data/$now/$expName/"
+mkdir -p $workingDir
+logfile="$workingDir/log.out"
+
 
 module load meep
 
-srun python3 ../TwoDimension/LoadedCapillaries.py ${myfilename} 1000 6.0 solidCore > ${logfile}
+srun python3 ../TwoDimension/LoadedCapillaries.py ${workingDir} 1000 6.0 solidCore > ${logfile}

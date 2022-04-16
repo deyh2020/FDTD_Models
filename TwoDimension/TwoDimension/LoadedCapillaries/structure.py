@@ -32,9 +32,7 @@ class structure:
 			#Simulation Properties
 			"today":str(date.today()),
 			"WallT":0,
-			"workingDir":'',
-			"filename":'test',
-			"dataFile":'test',
+			"workingDir":'../data/',
 			"roundTrips":1.00,    #relates to how long the sim will run relative to orbits of the WGM
 			"SaveFieldsatEnd":True,
             #Flags
