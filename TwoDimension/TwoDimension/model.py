@@ -180,10 +180,9 @@ class Model:
         Dumping fields and fluxes
         """
         
-        if self.Variables['SaveFieldsatEnd']:
-            self.sim.dump(self.Variables['workingDir'])
-            self.sim.save_flux("Transmission",self.tranE)
-            self.Variables['SimTime'] = self.sim.round_time()
+        self.sim.dump(self.Variables['workingDir'])
+        self.sim.save_flux("Transmission",self.tranE)
+        self.Variables['SimTime'] = self.sim.round_time()
 
 
         flux_freqs = mp.get_flux_freqs(self.tranE)
