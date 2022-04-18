@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -t 12:00:00          
+#SBATCH -t 6:00:00          
 #SBATCH --ntasks=48
 
 
