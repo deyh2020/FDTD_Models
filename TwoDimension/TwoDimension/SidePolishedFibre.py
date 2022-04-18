@@ -10,16 +10,9 @@ Model.SidePolish()
 
 try:
     Model.structure.Variables['workingDir']   = str(sys.argv[1])
-    Model.structure.Variables['filename']   = str(sys.argv[2])
-    Model.structure.Variables['roundTrips'] = float(sys.argv[3])
+    Model.structure.Variables['roundTrips'] = float(sys.argv[2])
 except:
     print("That didn't work")
-
-"""
-if "enablefluxregion" in args:
-    print("enabling flux region")
-    Solver.M.FluxRegion = True
-"""
 
 if "square" in args:
     Model.structure.Variables['angle'] = 90

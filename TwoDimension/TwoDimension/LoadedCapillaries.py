@@ -10,9 +10,8 @@ Model.LoadedCap()
 
 try:
     Model.structure.Variables['workingDir']   = str(sys.argv[1])
-    Model.structure.Variables['filename']   = str(sys.argv[2])
-    Model.structure.Variables['roundTrips'] = float(sys.argv[3])
-    Model.structure.Variables['WallThick'] = float(sys.argv[4])
+    Model.structure.Variables['roundTrips'] = float(sys.argv[2])
+    Model.structure.Variables['WallThick'] = float(sys.argv[3])
 except:
     print("That didn't work")
 

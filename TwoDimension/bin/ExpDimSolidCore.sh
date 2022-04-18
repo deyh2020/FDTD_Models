@@ -6,6 +6,8 @@
 
 
 expName="SolidCore"
+roundTrips="1000"
+
 
 #now=$(date +"%Y-%m-%d")
 now="2022-04-14"
@@ -16,4 +18,4 @@ logfile="$workingDir/log.out"
 
 module load meep
 
-srun python3 ../TwoDimension/LoadedCapillaries.py ${workingDir} 1000 6.0 solidCore > ${logfile}
+srun python3 ../TwoDimension/LoadedCapillaries.py ${workingDir} ${roundTrips} 6.0 solidCore > ${logfile}

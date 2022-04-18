@@ -1,16 +1,17 @@
 #!/bin/bash
-#SBATCH -t 7:00:00          
-#SBATCH --ntasks=48
+#SBATCH -t 20:00:00          
+#SBATCH --ntasks=60
 
 
 expName="SidePolish_Square2mm"
+roundTrips="5"
 
 #now=$(date +"%Y-%m-%d")
-now="2022-04-14"
+now="2022-04-18"
 workingDir="../data/$now/$expName/"
 mkdir -p $workingDir
 logfile="$workingDir/log.out"
 
 module load meep
 
-srun python3 ../TwoDimension/SidePolishedFibre.py ${workingDir} 40 square > ${logfile}
+srun python3 ../TwoDimension/SidePolishedFibre.py ${workingDir} ${roundTrips} square > ${logfile}
