@@ -24,7 +24,7 @@ class structure:
             'CladLeft':0 ,
             'Depth':40,
             'Width':322,
-            'GAP':500,
+            'GAP':1000,
             
             'BubblesNum':2 ,
             'BubblesType':'sqr',
@@ -138,13 +138,13 @@ class structure:
                 ]
 
 
-        self.LH = mp.Prism(center=mp.Vector3(       x=-self.Variables['GAP']/2 - TL/2 - self.Variables['PAD']/2      ,y=-D/2+self.Variables['R1']+self.Variables['CladLeft'],z=0),
+        self.LH = mp.Prism(center=mp.Vector3(       x=-self.Variables['GAP']/2 - self.Variables['PAD']/2      ,y=-D/2+self.Variables['R1']+self.Variables['CladLeft'],z=0),
                             vertices = verts,
                             material=mp.Medium(index=self.Variables['nAir']),
                             height=1
                             )
 
-        self.RH = mp.Prism(center=mp.Vector3(       x=self.Variables['GAP']/2 + TL/2 - self.Variables['PAD']/2       ,y=-D/2+self.Variables['R1']+self.Variables['CladLeft'],z=0),
+        self.RH = mp.Prism(center=mp.Vector3(       x=self.Variables['GAP']/2 - self.Variables['PAD']/2       ,y=-D/2+self.Variables['R1']+self.Variables['CladLeft'],z=0),
                             vertices = verts,
                             material=mp.Medium(index=self.Variables['nAir']),
                             height=1

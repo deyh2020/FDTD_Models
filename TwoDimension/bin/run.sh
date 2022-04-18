@@ -8,4 +8,4 @@ workingDir="../data/$now/$expName/"
 mkdir -p $workingDir
 logfile="$workingDir/log.out"
 
-python ../TwoDimension/LoadedCapillaries.py ${workingDir} 0
+python ../TwoDimension/SidePolishedFibre.py ${workingDir} 0 justplot

@@ -1,9 +1,9 @@
 #!/bin/bash
-#SBATCH -t 10:00:00          
-#SBATCH --ntasks=36
+#SBATCH -t 23:00:00          
+#SBATCH --ntasks=48
 
 
-expName="SidePolish_Square500um"
+expName="SidePolish_Square1mm"
 
 #now=$(date +"%Y-%m-%d")
 now="2022-04-14"
