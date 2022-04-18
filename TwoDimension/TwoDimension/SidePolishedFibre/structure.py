@@ -24,7 +24,7 @@ class structure:
             'CladLeft':0 ,
             'Depth':40,
             'Width':322,
-            'GAP':1000,
+            'GAP':2000,
             
             'BubblesNum':2 ,
             'BubblesType':'sqr',
