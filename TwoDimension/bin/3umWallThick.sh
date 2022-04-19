@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH -t 13:00:00          
-#SBATCH --ntasks=18
+#SBATCH --ntasks=32
 
 
 
@@ -10,7 +10,7 @@ wallThickness="3.0"
 
 
 #now=$(date +"%Y-%m-%d")
-now="2022-04-14"
+now="2022-04-19"
 workingDir="../data/$now/$expName/"
 mkdir -p $workingDir
 logfile="$workingDir/log.out"
