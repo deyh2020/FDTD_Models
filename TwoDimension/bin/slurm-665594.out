@@ -1,0 +1,12 @@
+Warning: grid volume is not an integer number of pixels; cell size will be rounded to nearest pixel.
+Warning: grid volume is not an integer number of pixels; cell size will be rounded to nearest pixel.
+srun: Job step aborted: Waiting up to 62 seconds for job step to finish.
+srun: got SIGCONT
+slurmstepd: error: *** JOB 665594 ON topsy-cn-1-4 CANCELLED AT 2022-04-18T21:21:01 ***
+srun: forcing job termination
+slurmstepd: error: *** STEP 665594.0 ON topsy-cn-1-4 CANCELLED AT 2022-04-18T21:21:01 ***
+srun: error: topsy-cn-1-10: tasks 40-47: Terminated
+srun: error: topsy-cn-1-9: tasks 32-39: Terminated
+srun: error: topsy-cn-1-7: tasks 24-31: Terminated
+srun: error: topsy-cn-1-5: tasks 16-23: Terminated
+srun: error: topsy-cn-1-4: tasks 0-15: Terminated
