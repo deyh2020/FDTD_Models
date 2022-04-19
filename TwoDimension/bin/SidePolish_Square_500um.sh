@@ -3,7 +3,7 @@
 #SBATCH --ntasks=48
 
 
-expName="SidePolish_Square1mm"
+expName="SidePolish_Square500um"
 roundTrips="5.0"
 GAP="500"
 
