@@ -5,7 +5,7 @@
 
 
 expName="Bench_16"
-roundTrips="1"
+roundTrips="10"
 wallThickness="5.0"
 
 

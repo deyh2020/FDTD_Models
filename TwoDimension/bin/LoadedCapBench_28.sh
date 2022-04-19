@@ -1,11 +1,11 @@
 #!/bin/bash
-#SBATCH -t 00:30:00          
+#SBATCH -t 01:00:00          
 #SBATCH --ntasks=28
 
 
 
 expName="Bench_28"
-roundTrips="1"
+roundTrips="10"
 wallThickness="5.0"
 
 
