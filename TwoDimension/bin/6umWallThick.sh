@@ -1,7 +1,6 @@
 #!/bin/bash
 #SBATCH -t 13:00:00          
 #SBATCH --ntasks=18
-#SBATCH --nodes=1
 
 
 expName="ExperimentalDimentions"

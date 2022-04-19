@@ -3,7 +3,6 @@
 #SBATCH --ntasks=24
 
 
-
 expName="Bench_24"
 roundTrips="10"
 wallThickness="5.0"

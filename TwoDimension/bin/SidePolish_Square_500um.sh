@@ -1,11 +1,11 @@
 #!/bin/bash
-#SBATCH -t 23:00:00          
+#SBATCH -t 08:00:00          
 #SBATCH --ntasks=48
 
 
 expName="SidePolish_Square1mm"
 roundTrips="5.0"
-GAP="2000"
+GAP="500"
 
 now=$(date +"%Y-%m-%d")
 now="2022-04-18"
@@ -16,3 +16,6 @@ logfile="$workingDir/log.out"
 module load meep
 
 python ../TwoDimension/SidePolishedFibre.py ${workingDir} ${roundTrips} ${GAP} square >$ {logfile}
+
+
+

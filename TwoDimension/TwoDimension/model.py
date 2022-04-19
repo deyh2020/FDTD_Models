@@ -196,8 +196,15 @@ class Model:
          
         for name,detector in self.detectors.items():  # dump all the Fourier Transform detectors
             self.sim.save_flux(name,detector) 
+            #self.sim.output_dft(detector, self.Variables['workingDir'] + name+"_dft")
+            self.dumpWGMfields(detector,name+"dft")
             
         self.Variables['SimTime'] = self.sim.round_time()
+        
+        
+        """
+        Dumping fields and fluxes
+        """
 
 
         flux_freqs = mp.get_flux_freqs(self.detectors['Transmission'])
@@ -233,3 +240,16 @@ class Model:
         plt.plot(wl,Ts,label='transmittance')
         plt.xlabel("wavelength (μm)")
         plt.savefig(self.Variables['workingDir']+"TransRef_" + str(int(self.Variables['SimTime'])) + ".pdf")
+
+
+    def dumpWGMfields(self,detector,fname):        
+        
+        # initialize wl vs y-pos matrix.
+        matrix = np.zeros([len(self.sim.get_dft_array(detector,mp.Ez,0)),self.Variables['nfreq']],dtype=np.complex128)
+
+        for i in range(0,self.Variables['nfreq']):
+            matrix[:,i] = self.sim.get_dft_array(detector,mp.Ez,i)
+            
+        with open(self.Variables['workingDir'] + fname +".pkl", 'wb') as file:
+            pickle.dump(matrix,file)
+        

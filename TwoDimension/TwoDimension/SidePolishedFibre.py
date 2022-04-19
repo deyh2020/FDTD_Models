@@ -11,6 +11,8 @@ Model.SidePolish()
 try:
     Model.structure.Variables['workingDir']   = str(sys.argv[1])
     Model.structure.Variables['roundTrips'] = float(sys.argv[2])
+    Model.structure.Variables['GAP'] = float(sys.argv[3])
+
 except:
     print("That didn't work")
 
