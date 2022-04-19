@@ -238,7 +238,7 @@ class Model:
 
         plt.figure(dpi=1000)
         plt.plot(wl,Ts,label='transmittance')
-        plt.xlabel("wavelength (μm)")
+        plt.xlabel("wavelength (um)")
         plt.savefig(self.Variables['workingDir']+"TransRef_" + str(int(self.Variables['SimTime'])) + ".pdf")
 
 
