@@ -15,7 +15,7 @@ logfile="$workingDir/log.out"
 
 module load meep
 
-srun python3 ../TwoDimension/SidePolishedFibre.py ${workingDir} ${roundTrips} ${GAP} square >$ {logfile}
+srun python3 ../TwoDimension/SidePolishedFibre.py ${workingDir} ${roundTrips} ${GAP} square > ${logfile}
 
 
 
