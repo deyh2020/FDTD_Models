@@ -25,8 +25,8 @@ class structure:
 			"res":10.000/1.0,    # would usually be 10px per wl but our smallest waveguide is 1um thick
 			"dpml":1.55,
 			#Simulation source Properties
-			"StartWL":1.520,
-			"EndWL":1.580,
+			"StartWL":1.522,
+			"EndWL":1.538,
 			"WLres":0.001/1000, #res in um so picometer resolution
 			"Courant":1.000/np.sqrt(2.000),
 			#Simulation Properties
@@ -132,7 +132,18 @@ class structure:
             ]
 
     def fluxDetectors(self):
-        self.detector = mp.FluxRegion(center=mp.Vector3((self.Variables['sx']/2) - 2*self.Variables['dpml'] ,self.taperYpos,0), size=mp.Vector3(0,5,0))
+        self.detectors = {
+            
+            "Transmission":mp.FluxRegion(
+                center=mp.Vector3((self.Variables['sx']/2) - 2*self.Variables['dpml'] ,self.taperYpos,0), 
+                size=mp.Vector3(0,5,0)
+                ),
+            "WGM":mp.FluxRegion(
+                center=mp.Vector3(0,self.Variables['capD']/2 - self.Variables['WallThick']/2,0), 
+                size=mp.Vector3(0,1.15*self.Variables['WallThick'],0)
+                )
+            
+        }
             
             
         

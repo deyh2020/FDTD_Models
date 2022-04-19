@@ -48,7 +48,8 @@ class Model:
 
     
     def SimRanBefore(self):
-        #check whether fields file exists.
+        #check whether fields file exists, then loads the variables dictionary 
+        #from file.
         WD = self.Variables['workingDir']
         
         if os.path.exists(WD + "fields.h5"):
@@ -59,6 +60,8 @@ class Model:
                     self.Variables = json.load(json_file)
             except:
                 print("Failed to load old vars from .json")
+                
+            #overwrite these variables
             self.Variables["prevRun"] = True 
             self.Variables['workingDir'] = WD
             print("Variables loaded")
@@ -81,8 +84,13 @@ class Model:
             )
         self.sim.use_output_directory(self.Variables["workingDir"])
 
-        # transmitted flux
-        self.tranE = self.sim.add_flux(self.Variables['fcen'], self.Variables['df'], self.Variables['nfreq'], self.structure.detector)
+        # add flux detectors
+        self.detectors = {}
+        if NormRun:
+            self.detectors['Transmission'] = self.sim.add_flux(self.Variables['fcen'], self.Variables['df'], self.Variables['nfreq'],self.structure.detectors['Transmission'])
+        else:
+            for name,detector in self.structure.detectors.items():
+                self.detectors[name] = self.sim.add_flux(self.Variables['fcen'], self.Variables['df'], self.Variables['nfreq'], detector)
 
 
         fig,ax = plt.subplots(dpi=150)
@@ -112,17 +120,17 @@ class Model:
 
 
             self.sim.run(
-                until_after_sources=self.Variables['sx']*self.Variables['nClad']
+                until_after_sources=self.Variables['sx']*self.Variables['nCore']
                 )
 
-            self.norm_tran = mp.get_fluxes(self.tranE)
+            self.norm_tran = mp.get_fluxes(self.detectors['Transmission'])
 
             #Reset sources
             self.sim.reset_meep()
 
 
         elif self.Variables["prevRun"] == True:
-            #load pickless (for normal transmission spectrum)
+            #if there has been a previous sim, then load the norm data
             with open(self.Variables["workingDir"] + "Data.pkl","rb") as file:
                 data = pickle.load(file)
             self.norm_tran = data['norm_tran']
@@ -135,6 +143,8 @@ class Model:
     def AutoRun(self):
 
         if self.Variables["prevRun"] == True:
+            #If we're reloading variables then we must reload the FT detectors with data from 
+            #last time
             print("")
             print("")
             print("")
@@ -142,8 +152,10 @@ class Model:
             print("")
             print("")
             print("")
-            self.sim.load(self.Variables['workingDir'])
-            self.sim.load_flux("Transmission",self.tranE)
+            
+            self.sim.load(self.Variables['workingDir'])  # loads structure and fields
+            for name,detector in self.detectors.items(): # loads detector data from files
+                self.sim.load_flux(name,detector)
         else:
             print("")
             print("")
@@ -180,13 +192,16 @@ class Model:
         Dumping fields and fluxes
         """
         
-        self.sim.dump(self.Variables['workingDir'])
-        self.sim.save_flux("Transmission",self.tranE)
+        self.sim.dump(self.Variables['workingDir'])   # dumps fields and structure
+         
+        for name,detector in self.detectors.items():  # dump all the Fourier Transform detectors
+            self.sim.save_flux(name,detector) 
+            
         self.Variables['SimTime'] = self.sim.round_time()
 
 
-        flux_freqs = mp.get_flux_freqs(self.tranE)
-        tran_flux = mp.get_fluxes(self.tranE)
+        flux_freqs = mp.get_flux_freqs(self.detectors['Transmission'])
+        tran_flux = mp.get_fluxes(self.detectors['Transmission'])
 
         Data = {}
         Data['flux_freqs'] = flux_freqs

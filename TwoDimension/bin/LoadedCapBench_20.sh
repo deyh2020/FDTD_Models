@@ -1,18 +1,20 @@
 #!/bin/bash
-#SBATCH -t 13:00:00          
-#SBATCH --ntasks=18
+#SBATCH -t 01:00:00          
+#SBATCH --ntasks=20
 
 
-expName="9umWallThick"
-roundTrips="1000"
-wallThickness="9.0"
+
+expName="Bench_20"
+roundTrips="1"
+wallThickness="5.0"
 
 
 #now=$(date +"%Y-%m-%d")
-now="2022-04-14"
+now="2022-04-19"
 workingDir="../data/$now/$expName/"
 mkdir -p $workingDir
 logfile="$workingDir/log.out"
+
 
 module load meep
 

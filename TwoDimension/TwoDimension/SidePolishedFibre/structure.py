@@ -178,9 +178,14 @@ class structure:
             ]
 
     def fluxDetectors(self):
-        self.detector = mp.FluxRegion(center=mp.Vector3((self.Variables['sx']/2) - 2*self.Variables['dpml'] ,0,0), 
-                size=mp.Vector3(0,12,0))
+        self.detectors = {
             
+            "Transmission":mp.FluxRegion(
+                center=mp.Vector3((self.Variables['sx']/2) - 2*self.Variables['dpml'] ,0,0), 
+                size=mp.Vector3(0,12,0)
+                )
+            
+        }
             
     def PDMSindex(self):
 
