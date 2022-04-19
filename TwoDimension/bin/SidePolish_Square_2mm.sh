@@ -1,6 +1,6 @@
 #!/bin/bash
-#SBATCH -t 20:00:00          
-#SBATCH --ntasks=60
+#SBATCH -t 23:00:00          
+#SBATCH --ntasks=48
 
 
 expName="SidePolish_Square2mm"
