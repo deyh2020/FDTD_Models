@@ -197,7 +197,7 @@ class Model:
         for name,detector in self.detectors.items():  # dump all the Fourier Transform detectors
             self.sim.save_flux(name,detector) 
             #self.sim.output_dft(detector, self.Variables['workingDir'] + name+"_dft")
-            self.dumpWGMfields(detector,name+"dft")
+            self.dumpWGMfields(detector,name)
             
         self.Variables['SimTime'] = self.sim.round_time()
         
@@ -242,14 +242,31 @@ class Model:
         plt.savefig(self.Variables['workingDir']+"TransRef_" + str(int(self.Variables['SimTime'])) + ".pdf")
 
 
-    def dumpWGMfields(self,detector,fname):        
+    def dumpWGMfields(self,detector,name):        
+        
         
         # initialize wl vs y-pos matrix.
         matrix = np.zeros([len(self.sim.get_dft_array(detector,mp.Ez,0)),self.Variables['nfreq']],dtype=np.complex128)
 
         for i in range(0,self.Variables['nfreq']):
             matrix[:,i] = self.sim.get_dft_array(detector,mp.Ez,i)
-            
-        with open(self.Variables['workingDir'] + fname +".pkl", 'wb') as file:
-            pickle.dump(matrix,file)
+        
+        data = {}
+        #Wavelength vs position vs Ez
+        data['matrix'] = np.fliplr(np.flipud(matrix))
+        
+        #wavelengths measured over
+        data['WL'] = 1/np.flip(detector.args[0])
+
+        #positional data
+        cen = self.structure.detectors[name].center
+        size = self.structure.detectors[name].size
+        data['Location'] = self.sim.get_array_metadata(center=cen, size=size)
+        
+        #refractiveindex underneath monitor
+        data['RefractiveIndex'] = np.sqrt(self.sim.get_array(component=mp.Dielectric,center=cen,size=size))
+        
+        #dump data to file
+        with open(self.Variables['workingDir'] + name +"_dft.pkl", 'wb') as file:
+            pickle.dump(data,file)
         

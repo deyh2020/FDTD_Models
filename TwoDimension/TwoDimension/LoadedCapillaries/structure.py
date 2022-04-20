@@ -24,6 +24,7 @@ class structure:
 			"PAD":2.000,
 			"res":10.000/1.0,    # would usually be 10px per wl but our smallest waveguide is 1um thick
 			"dpml":1.55,
+            "WGM_monitor_Height":10,
 			#Simulation source Properties
 			"StartWL":1.522,
 			"EndWL":1.538,
@@ -139,8 +140,8 @@ class structure:
                 size=mp.Vector3(0,5,0)
                 ),
             "WGM":mp.FluxRegion(
-                center=mp.Vector3(0,self.Variables['capD']/2 - self.Variables['WallThick']/2,0), 
-                size=mp.Vector3(0,1.15*self.Variables['WallThick'],0)
+                center=mp.Vector3(0,self.Variables['capD']/2 - self.Variables['WGM_monitor_Height']/2,0), 
+                size=mp.Vector3(0,self.Variables['WGM_monitor_Height'],0)
                 )
             
         }
