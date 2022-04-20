@@ -1,1 +1,1 @@
-rsync -aP --exclude='*.git*' b5025250@topsy-login:/share/nobackup/b5025250/FDTD_Models/TwoDimension/data ../
+rsync -aP --exclude='*.git*' --exclude="*fields.h5" --exclude="*structure.h5" b5025250@topsy-login:/share/nobackup/b5025250/FDTD_Models/TwoDimension/data ../
