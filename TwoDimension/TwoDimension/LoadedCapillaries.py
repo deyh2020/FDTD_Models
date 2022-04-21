@@ -17,7 +17,7 @@ except:
 
 if "solidCore" in args:
     print("Solid Clad Core")
-    Model.structure.Variables['nPDMS'] = Model.structure.Variables['nClad']
+    Model.structure.Variables['nPerovskite'] = Model.structure.Variables['nClad']
 
 if "justplot" in args:
     print("Just plotting")

@@ -62,7 +62,7 @@ class structure:
         self.Objlist = []
         
         self.Variables["sx"] = self.Variables['GAP']    +   2*self.Variables['Width']   +   self.Variables['PAD']   +   2*self.Variables['dpml'] + 100
-        self.Variables["sy"] = 2.3*self.Variables['R2'] +   2*self.Variables['dpml']
+        self.Variables["sy"] = 20 + 2*self.Variables['dpml'] #2.3*self.Variables['R2'] +   2*self.Variables['dpml']
 		
         self.cell_size = mp.Vector3(self.Variables["sx"],self.Variables["sy"],0)
 
@@ -96,7 +96,7 @@ class structure:
         self.Objlist = []
         
         self.Variables["sx"] = self.Variables['GAP']    +   2*self.Variables['Width']   +   self.Variables['PAD']   +   2*self.Variables['dpml'] + 100
-        self.Variables["sy"] = 2.3*self.Variables['R2'] + 2*self.Variables['dpml']
+        self.Variables["sy"] = 20 + 2*self.Variables['dpml']#2.3*self.Variables['R2'] + 2*self.Variables['dpml']
 		
         self.cell_size = mp.Vector3(self.Variables["sx"],self.Variables["sy"],0)
 
@@ -168,7 +168,7 @@ class structure:
                     fwidth=self.Variables['df']
                     ),
                 center=mp.Vector3(x=-(self.Variables['sx']/2)+2*self.Variables['dpml'],y=0),
-                size=mp.Vector3(y=40),
+                size=mp.Vector3(y=20),
                 direction=mp.X,
                 eig_kpoint=kpoint,
                 eig_band=1,
@@ -182,7 +182,7 @@ class structure:
             
             "Transmission":mp.FluxRegion(
                 center=mp.Vector3((self.Variables['sx']/2) - 2*self.Variables['dpml'] ,0,0), 
-                size=mp.Vector3(0,12,0)
+                size=mp.Vector3(0,20,0)
                 )
             
         }
