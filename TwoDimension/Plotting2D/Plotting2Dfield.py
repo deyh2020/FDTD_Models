@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import pickle
 
 
-filename = "../data/2022-04-18/SidePolish_Square2mm/Transmission_dft.pkl"
+filename = "../data/2022-04-21/SidePolish_Bench_32/Transmission_dft.pkl"
 #filename = "../data/2022-04-20/9umThick/Transmission_dft.pkl"
 
 with (open(filename, "rb")) as openfile:

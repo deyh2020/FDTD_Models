@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH -t 12:00:00          
-#SBATCH --ntasks=48
+#SBATCH --ntasks=32
 
 
 expName="SidePolish_Square1mm"
@@ -8,7 +8,7 @@ roundTrips="5.0"
 GAP="1000"
 
 now=$(date +"%Y-%m-%d")
-now="2022-04-18"
+now="2022-04-21"
 workingDir="../data/$now/$expName/"
 mkdir -p $workingDir
 logfile="$workingDir/log.out"
