@@ -165,7 +165,7 @@ class structure:
         self.src = [
                 mp.EigenModeSource(src=mp.GaussianSource(
                     self.Variables['fcen'],
-                    fwidth=self.Variables['df']
+                    fwidth=3*self.Variables['df']   # to avoid weird artifacts, larger source than monitor
                     ),
                 center=mp.Vector3(x=-(self.Variables['sx']/2)+2*self.Variables['dpml'],y=0),
                 size=mp.Vector3(y=20),

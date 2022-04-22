@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -t 15:00:00          
+#SBATCH -t 20:00:00          
 #SBATCH --ntasks=32
 
 
@@ -8,7 +8,7 @@ roundTrips="5.0"
 GAP="2000"
 
 now=$(date +"%Y-%m-%d")
-now="2022-04-21"
+now="2022-04-22"
 workingDir="../data/$now/$expName/"
 mkdir -p $workingDir
 logfile="$workingDir/log.out"

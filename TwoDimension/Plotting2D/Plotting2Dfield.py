@@ -2,8 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt 
 import pickle
 
-
-filename = "../data/2022-04-21/SidePolish_Bench_32/Transmission_dft.pkl"
+WD = "../data/2022-04-21/SidePolish_Square500um/"
+filename = WD + "Transmission_dft.pkl"
 #filename = "../data/2022-04-20/9umThick/Transmission_dft.pkl"
 
 with (open(filename, "rb")) as openfile:
@@ -42,4 +42,4 @@ plt.imshow(
         alpha=0.7)
 
 
-plt.show()
+plt.savefig(WD+"Fields.pdf",dpi=400)
