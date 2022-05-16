@@ -30,7 +30,10 @@ class Model:
         self.normRun()
 
         #Actual run
-        self.structure.buildStructure()  
+        if self.Variables['Polished'] == True:
+            self.structure.buildStructure()  
+        else:
+            self.structure.buildUnpolishedStructure()
         self.structure.sources()
         self.structure.fluxDetectors()
         self.Buildsim(NormRun=False,Plot=True) 

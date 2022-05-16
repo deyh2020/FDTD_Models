@@ -19,6 +19,7 @@ class structure:
 			"R1":4.1,
             "R2":62.5,
             "CladLeft":1.0,
+            "Polished":True,
 			##Resonator Dimentions
             'angle':121.4,
             'CladLeft':0 ,
@@ -62,8 +63,8 @@ class structure:
         self.Objlist = []
         
         self.Variables["sx"] = self.Variables['GAP']    +   2*self.Variables['Width']   +   self.Variables['PAD']   +   2*self.Variables['dpml'] + 100
-        self.Variables["sy"] = 20 + 2*self.Variables['dpml'] #2.3*self.Variables['R2'] +   2*self.Variables['dpml']
-		
+        self.Variables["sy"] = 2.3*self.Variables['R2'] +   2*self.Variables['dpml'] #20 + 2*self.Variables['dpml'] #
+		 
         self.cell_size = mp.Vector3(self.Variables["sx"],self.Variables["sy"],0)
 
         self.pml_layers = [mp.PML(thickness=self.Variables["dpml"])]
@@ -96,7 +97,7 @@ class structure:
         self.Objlist = []
         
         self.Variables["sx"] = self.Variables['GAP']    +   2*self.Variables['Width']   +   self.Variables['PAD']   +   2*self.Variables['dpml'] + 100
-        self.Variables["sy"] = 20 + 2*self.Variables['dpml']#2.3*self.Variables['R2'] + 2*self.Variables['dpml']
+        self.Variables["sy"] = 2.3*self.Variables['R2'] + 2*self.Variables['dpml'] #20 + 2*self.Variables['dpml'] #
 		
         self.cell_size = mp.Vector3(self.Variables["sx"],self.Variables["sy"],0)
 
@@ -152,6 +153,67 @@ class structure:
 
         self.Objlist.extend([self.Coating,self.Clad,self.Core,self.LH,self.RH])
 
+    def buildUnpolishedStructure(self):
+        #Build a structure that represents a system without the device, i.e here i've just built a waveguide 
+        #without a WGM.
+        self.Objlist = []
+        
+        self.Variables["sx"] = self.Variables['GAP']    +   2*self.Variables['Width']   +   self.Variables['PAD']   +   2*self.Variables['dpml'] + 100
+        self.Variables["sy"] = 2.3*self.Variables['R2'] + 2*self.Variables['dpml'] #20 + 2*self.Variables['dpml'] #
+		
+        self.cell_size = mp.Vector3(self.Variables["sx"],self.Variables["sy"],0)
+
+        self.pml_layers = [mp.PML(thickness=self.Variables["dpml"])]
+
+        self.Coating = mp.Block(
+            center=mp.Vector3(0,0,0),
+            size=mp.Vector3(mp.inf,mp.inf,mp.inf),
+            material=mp.Medium(index=self.Variables['nAir'])
+            )
+
+
+        self.Clad = mp.Block(
+            center=mp.Vector3(x=0,y=0),
+            size=mp.Vector3(x=mp.inf,y= 2*self.Variables['R2']  ,z=mp.inf),
+            material=mp.Medium(index=self.Variables['nClad'])
+            )
+
+        self.Core = mp.Block(
+            center=mp.Vector3(0,0,0),
+            size=mp.Vector3(mp.inf,2*self.Variables['R1'],mp.inf),
+            material=mp.Medium(index=self.Variables['nCore'])
+            )
+
+
+        TL    = self.Variables['Width']
+        D     = self.Variables['Depth']
+        angle = self.Variables['angle']
+
+        BL    = TL - 2*(D/np.tan((180-angle)*(np.pi/180)))
+                
+        verts = [
+                
+                mp.Vector3(x=-TL/2,		y=D 	,z=0),
+                mp.Vector3(x=TL/2 ,		y=D 	,z=0),
+                mp.Vector3(x=BL/2 ,		y=0 	,z=0),
+                mp.Vector3(x=-BL/2,		y=0 	,z=0)
+            
+                ]
+
+
+        self.LH = mp.Prism(center=mp.Vector3(       x=-self.Variables['GAP']/2 - self.Variables['PAD']/2      ,y=-D/2+self.Variables['R1']+self.Variables['CladLeft'],z=0),
+                            vertices = verts,
+                            material=mp.Medium(index=self.Variables['nAir']),
+                            height=1
+                            )
+
+        self.RH = mp.Prism(center=mp.Vector3(       x=self.Variables['GAP']/2 - self.Variables['PAD']/2       ,y=-D/2+self.Variables['R1']+self.Variables['CladLeft'],z=0),
+                            vertices = verts,
+                            material=mp.Medium(index=self.Variables['nAir']),
+                            height=1
+                            )
+
+        self.Objlist.extend([self.Coating,self.Clad,self.Core,self.LH,self.RH])
 
     def sources(self):
         #calculate fcen df and nfreq add sources to a list
