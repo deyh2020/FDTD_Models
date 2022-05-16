@@ -2,8 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt 
 import pickle
 
-WD = "../data/2022-04-21/SidePolish_Square2mm/"
-fieldFname = WD + "Transmission_dft.pkl"
+WD = "../data/2022-04-20/6umThick/"
+fieldFname = WD + "WGM_dft.pkl"
 spectrumFname = WD + "Data.pkl"
 #filename = "../data/2022-04-20/9umThick/Transmission_dft.pkl"
 
@@ -49,12 +49,12 @@ fig, ax = plt.subplots(2,1,figsize=(20,10))
 
 
 #ax[0].plot(wl,pwr)
-ax[0].plot(wl,pwr/norm)
+ax[0].plot(wl*1000,pwr/norm)
 
 
 ax[1].imshow(
         np.flipud(nMatrix),
-        aspect=0.3, 
+        aspect=0.1, 
         #interpolation="none",
         extent=(WL[0],WL[-1],y[0],y[-1]),
         cmap="Greys",
@@ -62,13 +62,19 @@ ax[1].imshow(
 
 ax[1].imshow(
         np.abs(field['matrix']),
-        aspect=0.3, 
+        aspect=0.1, 
         interpolation="none",
         extent=(WL[0],WL[-1],y[0],y[-1]),
-        cmap="Reds",
+        cmap="binary",
         alpha=0.7)
 
-ax[0].set_title("2mm GAP",fontsize=16)
+ax[0].set_title("6um Wall Thickness: Transmission Spectrum",fontsize=16)
+ax[1].set_title("WGM mode monitor",fontsize=16)
+
+
+ax[0].set_xlim(1530,1536)
+ax[1].set_xlim(1530,1536)
+
 
 plt.savefig(WD+"Fields.pdf",dpi=400)
 plt.show()
