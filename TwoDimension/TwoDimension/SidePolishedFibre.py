@@ -19,6 +19,9 @@ except:
 if "square" in args:
     Model.structure.Variables['angle'] = 90
 
+if "unpolished" in args:
+    Model.structure.Variables['Polished'] = False
+ 
 if "justplot" in args:
     print("Just plotting")
     Model.PlotStructure()
