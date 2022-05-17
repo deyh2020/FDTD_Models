@@ -92,6 +92,7 @@ class structure:
 
 
     def buildStructure(self):
+        print("im not here")
         #Build a structure that represents a system without the device, i.e here i've just built a waveguide 
         #without a WGM.
         self.Objlist = []
@@ -185,8 +186,11 @@ class structure:
             )
 
 
+        R1 = self.Variables['R1']
+        R2 = self.Variables['R2']
+
         TL    = self.Variables['Width']
-        D     = self.Variables['Depth']
+        D     = self.Variables['Depth'] +  (R2 - R1/2)
         angle = self.Variables['angle']
 
         BL    = TL - 2*(D/np.tan((180-angle)*(np.pi/180)))
@@ -201,13 +205,13 @@ class structure:
                 ]
 
 
-        self.LH = mp.Prism(center=mp.Vector3(       x=-self.Variables['GAP']/2 - self.Variables['PAD']/2      ,y=-D/2+self.Variables['R1']+self.Variables['CladLeft'],z=0),
+        self.LH = mp.Prism(center=mp.Vector3(x=-self.Variables['GAP']/2 - self.Variables['PAD']/2      ,y=-D/2+self.Variables['R1']+self.Variables['CladLeft'] + (R2 - R1/2),z=0),
                             vertices = verts,
                             material=mp.Medium(index=self.Variables['nAir']),
                             height=1
                             )
 
-        self.RH = mp.Prism(center=mp.Vector3(       x=self.Variables['GAP']/2 - self.Variables['PAD']/2       ,y=-D/2+self.Variables['R1']+self.Variables['CladLeft'],z=0),
+        self.RH = mp.Prism(center=mp.Vector3(       x=self.Variables['GAP']/2 - self.Variables['PAD']/2       ,y=-D/2+self.Variables['R1']+self.Variables['CladLeft'] + (R2 - R1/2),z=0),
                             vertices = verts,
                             material=mp.Medium(index=self.Variables['nAir']),
                             height=1

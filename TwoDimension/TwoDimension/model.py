@@ -30,10 +30,14 @@ class Model:
         self.normRun()
 
         #Actual run
-        if self.Variables['Polished'] == True:
-            self.structure.buildStructure()  
-        else:
+        print("Polished Variable")
+        print(self.Variables['Polished'])
+
+        if self.Variables['Polished'] == False:
             self.structure.buildUnpolishedStructure()
+        else:
+            self.structure.buildStructure()  
+
         self.structure.sources()
         self.structure.fluxDetectors()
         self.Buildsim(NormRun=False,Plot=True) 
@@ -43,7 +47,10 @@ class Model:
 
     def PlotStructure(self):	
         self.Variables = self.structure.Variables
-        self.structure.buildStructure()  
+        if self.Variables['Polished'] == False:
+            self.structure.buildUnpolishedStructure()
+        else:
+            self.structure.buildStructure()  
         self.structure.sources()
         self.structure.fluxDetectors()
         self.Buildsim(NormRun=False,Plot=True) 

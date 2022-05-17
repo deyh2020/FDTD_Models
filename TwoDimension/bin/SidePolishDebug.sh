@@ -13,7 +13,7 @@ workingDir="../data/$now/$expName/"
 mkdir -p $workingDir
 logfile="$workingDir/log.out"
 
-python ../TwoDimension/SidePolishedFibre.py ${workingDir} ${roundTrips} ${GAP} square justplot unpolished
+python ../TwoDimension/SidePolishedFibre.py ${workingDir} ${roundTrips} ${GAP} square justplot
 
 
 
