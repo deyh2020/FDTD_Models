@@ -1,0 +1,44 @@
+[topsy-cn-1-5:127770] *** Process received signal ***
+[topsy-cn-1-5:127770] Signal: Segmentation fault (11)
+[topsy-cn-1-5:127770] Signal code:  (128)
+[topsy-cn-1-5:127770] Failing at address: (nil)
+[topsy-cn-1-5:127770] [ 0] /lib64/libpthread.so.0(+0xf630)[0x7f97fb606630]
+[topsy-cn-1-5:127770] [ 1] /share/apps/openmpi/3.1.2/lib/openmpi/mca_btl_vader.so(+0x4358)[0x7f97dc92a358]
+[topsy-cn-1-5:127770] [ 2] /share/apps/openmpi/3.1.2/lib/libopen-pal.so.40(opal_progress+0x2c)[0x7f97f12ea29c]
+[topsy-cn-1-5:127770] [ 3] /share/apps/openmpi/3.1.2/lib/libopen-pal.so.40(ompi_sync_wait_mt+0xb5)[0x7f97f12f0f65]
+[topsy-cn-1-5:127770] [ 4] /share/apps/openmpi/3.1.2/lib/libmpi.so.40(ompi_request_default_wait_some+0x32c)[0x7f97f18c140c]
+[topsy-cn-1-5:127770] [ 5] /share/apps/openmpi/3.1.2/lib/libmpi.so.40(PMPI_Waitsome+0x106)[0x7f97f18fb6b6]
+[topsy-cn-1-5:127770] [ 6] /share/apps/meep/1.22.0/lib/libmeep.so.27(+0x8caf7)[0x7f97f3874af7]
+[topsy-cn-1-5:127770] [ 7] /share/apps/meep/1.22.0/lib/libmeep.so.27(_ZN4meep6fields15step_boundariesENS_10field_typeE+0x306)[0x7f97f3889a96]
+[topsy-cn-1-5:127770] [ 8] /share/apps/meep/1.22.0/lib/libmeep.so.27(_ZN4meep6fields4stepEv+0x348)[0x7f97f3889fd8]
+[topsy-cn-1-5:127770] [ 9] /share/apps/meep/1.22.0/lib/python3.9/site-packages/meep/_meep.so(+0x9e14d)[0x7f97f3c1014d]
+[topsy-cn-1-5:127770] [10] /share/apps/python/3.9.5/lib/libpython3.9.so.1.0(+0x100d1f)[0x7f97fbb4ad1f]
+[topsy-cn-1-5:127770] [11] /share/apps/python/3.9.5/lib/libpython3.9.so.1.0(_PyObject_MakeTpCall+0x9b)[0x7f97fbb0166b]
+[topsy-cn-1-5:127770] [12] /share/apps/python/3.9.5/lib/libpython3.9.so.1.0(_PyEval_EvalFrameDefault+0x9b48)[0x7f97fbabc038]
+[topsy-cn-1-5:127770] [13] /share/apps/python/3.9.5/lib/libpython3.9.so.1.0(+0x674e8)[0x7f97fbab14e8]
+[topsy-cn-1-5:127770] [14] /share/apps/python/3.9.5/lib/libpython3.9.so.1.0(_PyEval_EvalFrameDefault+0x4ed1)[0x7f97fbab73c1]
+[topsy-cn-1-5:127770] [15] /share/apps/python/3.9.5/lib/libpython3.9.so.1.0(+0x1b4416)[0x7f97fbbfe416]
+[topsy-cn-1-5:127770] [16] /share/apps/python/3.9.5/lib/libpython3.9.so.1.0(_PyFunction_Vectorcall+0xcb)[0x7f97fbb0143b]
+[topsy-cn-1-5:127770] [17] /share/apps/python/3.9.5/lib/libpython3.9.so.1.0(_PyEval_EvalFrameDefault+0x4ed1)[0x7f97fbab73c1]
+[topsy-cn-1-5:127770] [18] /share/apps/python/3.9.5/lib/libpython3.9.so.1.0(+0x1b4416)[0x7f97fbbfe416]
+[topsy-cn-1-5:127770] [19] /share/apps/python/3.9.5/lib/libpython3.9.so.1.0(_PyFunction_Vectorcall+0xcb)[0x7f97fbb0143b]
+[topsy-cn-1-5:127770] [20] /share/apps/python/3.9.5/lib/libpython3.9.so.1.0(_PyEval_EvalFrameDefault+0x4ed1)[0x7f97fbab73c1]
+[topsy-cn-1-5:127770] [21] /share/apps/python/3.9.5/lib/libpython3.9.so.1.0(+0x1b4416)[0x7f97fbbfe416]
+[topsy-cn-1-5:127770] [22] /share/apps/python/3.9.5/lib/libpython3.9.so.1.0(_PyFunction_Vectorcall+0xcb)[0x7f97fbb0143b]
+[topsy-cn-1-5:127770] [23] /share/apps/python/3.9.5/lib/libpython3.9.so.1.0(+0xba719)[0x7f97fbb04719]
+[topsy-cn-1-5:127770] [24] /share/apps/python/3.9.5/lib/libpython3.9.so.1.0(_PyEval_EvalFrameDefault+0x64f7)[0x7f97fbab89e7]
+[topsy-cn-1-5:127770] [25] /share/apps/python/3.9.5/lib/libpython3.9.so.1.0(+0x674e8)[0x7f97fbab14e8]
+[topsy-cn-1-5:127770] [26] /share/apps/python/3.9.5/lib/libpython3.9.so.1.0(_PyEval_EvalFrameDefault+0x4ed1)[0x7f97fbab73c1]
+[topsy-cn-1-5:127770] [27] /share/apps/python/3.9.5/lib/libpython3.9.so.1.0(+0x674e8)[0x7f97fbab14e8]
+[topsy-cn-1-5:127770] [28] /share/apps/python/3.9.5/lib/libpython3.9.so.1.0(_PyEval_EvalFrameDefault+0x4ed1)[0x7f97fbab73c1]
+[topsy-cn-1-5:127770] [29] /share/apps/python/3.9.5/lib/libpython3.9.so.1.0(+0x1b4416)[0x7f97fbbfe416]
+[topsy-cn-1-5:127770] *** End of error message ***
+srun: error: topsy-cn-1-5: task 25: Segmentation fault
+srun: First task exited 60s ago
+srun: step:666452.0 tasks 0-24,26-31: running
+srun: step:666452.0 task 25: exited abnormally
+srun: Terminating job step 666452.0
+srun: Job step aborted: Waiting up to 62 seconds for job step to finish.
+slurmstepd: error: *** STEP 666452.0 ON topsy-cn-1-4 CANCELLED AT 2022-04-22T12:32:05 ***
+srun: error: topsy-cn-1-5: tasks 15-24,26-31: Killed
+srun: error: topsy-cn-1-4: tasks 0-14: Killed
