@@ -280,3 +280,4 @@ class Model:
         with open(self.Variables['workingDir'] + name +"_dft.pkl", 'wb') as file:
             pickle.dump(data,file)
         
+

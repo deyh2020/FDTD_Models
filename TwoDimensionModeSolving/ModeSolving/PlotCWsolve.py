@@ -3,18 +3,18 @@ import matplotlib.pyplot as plt
 import h5py
 
 
-wD = "data/2022-02-23/"
+wD = "../data/2022-06-13/test_ModeSolving/"
 
 
 #f = h5py.File(wD + "CWsolve-Air.h5",'r')
 
 fig,axes = plt.subplots(1,2,dpi=200)
 
-eps    = ['Air/CWsolve-FieldProfiles-eps-000000.00.h5','PDMS/CWsolve-FieldProfiles-eps-000000.00.h5']
-fields = ['Air/CWsolve-FieldProfiles-ey-000000.00.h5','PDMS/CWsolve-FieldProfiles-ey-000000.00.h5']
+eps    = ['NaseemFibre-eps-000000.00.h5']
+fields = ['NaseemFibre-ey-000000.00.h5']
 
 
-for i in [0,1]:
+for i in [0]:
 
     epsf = np.flip( np.transpose( np.array( h5py.File(wD + eps[i],'r')['eps'] ) ),0 )
     epsf = (epsf - 1.00)**15

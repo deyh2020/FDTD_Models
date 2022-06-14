@@ -1,8 +1,9 @@
-import SingleDimensionTR.Model as M
+import SidePolishFibre.Model as M
 import matplotlib.pyplot as plt
 import csv
 import numpy as np
 
+import h5py
 
 
 class OneDsolve: 
@@ -11,24 +12,34 @@ class OneDsolve:
 
         self.M = M.Model()
 
-        self.M.filename = 'Mode2Exp'
-        self.M.Datafile = 'Test'
+        self.M.filename = 'default'
+        self.M.Datafile = 'default'
 
         self.Air = 1.00
         self.Core = 1.445
         self.Clad = 1.440
         self.PDMS = 1.410 
 
-        self.M.Width         = 50
-        self.M.Pad           = 50
+        self.M.Mthick         = 65
+        self.M.Pad           = 100
         self.M.BackgroundN = self.Core  
         self.M.N1          = self.Air
 
-        #self.M.N2          = self.M.N1     
+        #self.M.N2          = self.M.N1    
+
+
+        #Simulation source Properties
+        StartWL = 1.5
+        EndWL   = 1.6
+        WLres   = 0.001/1000 #res in um so 1pm
+        Courant = 1
+
+
+        self.M.fcen    = 1.0/((EndWL + StartWL)/2.0)
+        self.M.df      = ((1/StartWL) - (1/EndWL))
+        self.M.dfreq   = int((EndWL-StartWL)/WLres)
 
         self.M.res     = 10/1.55  # at least 10 px per wavelength
-        self.M.df      = 10e-2
-        self.M.nfreq   = 1000
         self.M.Courant = 1
 
         
@@ -51,12 +62,37 @@ class OneDsolve:
         self.M.N2          = self.Air
 
         #Layer width is in um
-        self.M.GAP         = 500
+        self.M.GAP         = 1000
     
-        self.M.Mthick      = 70#322
+        self.M.Mthick      = 65#322
 
-        self.M.RunTRspectrumDoubleFP()
+        self.M.RunTRspectrumSingleFP()
+        #self.M.RunTRspectrumDoubleFP()
+        self.plotEPS()
 
+
+
+    def plotEPS(self):  
+        filename = self.M.workingDir + "oneDsolve-eps-000000.00.h5"
+        with h5py.File(filename,'r') as f:    
+            eps = np.flipud(np.array(f['eps']).transpose())
+
+        
+        sx = self.M.sx
+
+        x = np.linspace(-sx/2,sx/2,len(eps))
+
+        fig,ax = plt.subplots(dpi=200)
+
+        ax.plot(x,np.sqrt(eps))
+
+
+        ax.set_title("Structure",fontsize=16)
+        ax.set_xlabel("Position / um",fontsize=16)
+        ax.set_ylabel("refractive index",fontsize=16)
+        plt.savefig(self.M.workingDir+"Structure.pdf")
+
+        plt.show()
 
 
     def mode_1(self):

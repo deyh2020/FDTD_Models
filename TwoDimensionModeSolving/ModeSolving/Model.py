@@ -320,7 +320,7 @@ class Model:
 		else:
 			print("Fibre Type not selected")
 
-		self.BuildModel_CW(Plot=False)
+		self.BuildModel_CW(Plot=True)
 		#self.RunAndPlotF_FDS(axes=axes)
 
 		print(self.workingDir)

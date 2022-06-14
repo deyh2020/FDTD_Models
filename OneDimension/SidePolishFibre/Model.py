@@ -64,20 +64,6 @@ class Model:
 		
 		
 
-	def mkALLDIRS(self):
-		
-		self.workingDir = '../data/'+self.today+'/'+self.filename + '_1Dmodel/'  # diffirentiate from other packages
-		
-
-		print('WD:',self.workingDir)
-
-		try:
-			os.makedirs(self.workingDir)
-		except:
-			print('AlreadyDir')
-
-		self.sim.use_output_directory(self.workingDir)
-
 
 
 	def buildFaboryPeriot(self,NormRun=False):
@@ -142,7 +128,7 @@ class Model:
 
 		M1 = mp.Block(
 			center=mp.Vector3(0,0,0),
-			size=mp.Vector3(self.Width,mp.inf,mp.inf),
+			size=mp.Vector3(self.Mthick,mp.inf,mp.inf),
 			material=mp.Medium(index=N1)
 			)
 
@@ -150,6 +136,8 @@ class Model:
 
 
 	def BuildModel(self,Plot=False,NormRun=False):   # builds sim and plots structure to file 
+
+		
 		
 		kx = 0.4
 		kpoint = mp.Vector3(kx)
@@ -175,8 +163,9 @@ class Model:
 			Courant=self.Courant
 			)
 
-
-		self.mkALLDIRS()
+		self.sim.use_output_directory(self.workingDir)
+		
+		#self.mkALLDIRS()
 
 		# src flux
 		src_fr = mp.FluxRegion(center=mp.Vector3(-(self.sx/2) + 2*self.dpml+5,0,0), size=mp.Vector3())                            
@@ -186,14 +175,6 @@ class Model:
 		tran_fr = mp.FluxRegion(center=mp.Vector3((self.sx/2) - 2*self.dpml ,0,0), size=mp.Vector3())
 		self.tranE = self.sim.add_flux(self.fcen, self.df, self.nfreq, tran_fr)
 
-
-		#fig,ax = plt.subplots(dpi=150)
-		#if NormRun:
-		#	self.sim.plot2D(ax=ax,eps_parameters={'alpha':0.8, 'interpolation':'none'},frequency=0)
-		#	plt.savefig(self.workingDir+"NormModel_" + str(self.Datafile) +".pdf")
-		#else:
-		#	self.sim.plot2D(ax=ax,eps_parameters={'alpha':0.8, 'interpolation':'none'},frequency=0)
-		#	plt.savefig(self.workingDir+"Model_" + str(self.Datafile) +".pdf")
 
 		
 
@@ -267,7 +248,7 @@ class Model:
 		Data['norm_tran'] = self.norm_tran
 		Data['norm_refl'] = self.norm_refl
 
-		with open(self.workingDir + self.Datafile + ".pkl", 'wb') as file:
+		with open(self.workingDir + "Data.pkl", 'wb') as file:
 			pickle.dump(Data,file)
 
 
@@ -287,25 +268,14 @@ class Model:
 		
 
 		self.axes.plot(wl,Ts,label=self.Datafile + 'C')
-		
-		from scipy.signal import find_peaks
 
-		peaks, _ = find_peaks(-Ts+1.0, height=0)
+		self.axes.set_title("Transmission",fontsize=16)
+		self.axes.set_xlabel("Wavelength / nm",fontsize=16)
+		self.axes.set_ylabel("Normalised Transmission Spectrum",fontsize=16)
 
-
-		self.axes.plot(wl[peaks],Ts[peaks],'x')
-
-		print(wl[peaks])
-
-		FSR = np.diff(wl[peaks])
-
-		print(FSR)
-
-		print(np.average(FSR))
-
-		plt.legend(loc="upper right")
+	
 		#plt.xlim((1530,1570))
-		plt.savefig(self.workingDir+"TransRef_" + str(self.Datafile) + "_" + str(self.Mthick) +".pdf")
+		plt.savefig(self.workingDir+"Transmission.pdf")
 		#plt.show()
 
 
@@ -436,7 +406,7 @@ class Model:
 		
 		Data['Out']['lambda'] = 1/np.array(mp.get_flux_freqs(self.tranE))
 		Data['Out']['flux'] = np.array(mp.get_fluxes(self.tranE))
-		
+		metadata['Data']
 
 		metadata = {
 			"date": str(self.today),
@@ -449,7 +419,7 @@ class Model:
 		Data['Src'] = {}       # sensor just after source.
 		Data['Out'] = {}       # sensor at the end of the WG (for transmission)
 
-		with open(metadata['Data'], 'wb') as file:
+		with open("Data.pkl", 'wb') as file:
 			pickle.dump(Data,file)
 
 
