@@ -4,6 +4,7 @@ import numpy as np
 import pickle,json, os
 import time
 import matplotlib.pyplot as plt
+import h5py
 
 class Model:
 
@@ -24,18 +25,19 @@ class Model:
     '''
 
     def BuildAndSolve(self,axes=None):
+        self.Variables = self.structure.Variables
+        self.structure.buildStructure()
 
-        self.structure.buildFibre()
-
-        self.structure.BuildModel_CW(Plot=False)
-
-        print(self.Variables['workingDir'])
-        
+        self.structure.BuildModel_CW()    
         
         self.structure.sim.init_sim()
         mp.output_epsilon(self.structure.sim)
         self.structure.sim.solve_cw()
         mp.output_efield_y(self.structure.sim)
+        self.saveMetaData()
+        self.PlotMode()
+
+        
 
     
     '''
@@ -43,26 +45,110 @@ class Model:
     '''
 
     def BuildAndSolveNEFF(self):
+        self.Variables = self.structure.Variables
+        
+        self.structure.buildStructure()
+        self.structure.BuildModel_CW() 
 
-        self.structure.buildFibre()
-
-        self.structure.BuildModel_CW(Plot=False)
         self.structure.RunMPB()
+
+        print("NEFF: ", self.structure.neff)
+
         self.structure.sim.reset_meep()
 
 
 
+    """
+    PlotStructure is used to just build the structure given and plot, very useful when making a new device.
+    """
+
 
     def PlotStructure(self):	
         self.Variables = self.structure.Variables
-        if self.Variables['Polished'] == False:
-            self.structure.buildUnpolishedStructure()
-        else:
-            self.structure.buildStructure()  
-        self.structure.sources()
-        self.structure.fluxDetectors()
-        self.Buildsim(NormRun=False,Plot=True) 
+        self.structure.buildStructure()  
+        self.structure.BuildModel_CW() 
         plt.show()
+
+
+    """
+    PlotMode is used to plot the mode profiles from file and save them.
+    """
+
+    def PlotMode(self):
+
+        epsFile = self.Variables['workingDir'] + self.Variables['MPsimname'] + "-eps-000000.00.h5"
+        eyFile      = self.Variables['workingDir'] + self.Variables['MPsimname'] + "-ey-000000.00.h5"
+
+        epsf = np.flip( np.transpose( np.array( h5py.File(epsFile,'r')['eps'] ) ),0 )
+        epsfmod = (epsf - 1.00)**15 # manipulating eps to create more contrast for plotting
+
+        fields = np.flip( np.transpose( h5py.File(eyFile,'r')['ey.r']))
+
+        midpoint = int(len(epsf[:,0])/2)
+        ext = self.Variables['SimSize']/2
+
+        vertical_eps    = np.sqrt(np.flip(epsf[:,midpoint]))
+        vertical_field  = np.flip(fields[:,midpoint]/max(fields[:,midpoint]))
+
+        horisontal_eps   = np.sqrt(epsf[midpoint,:])
+        horisontal_field = fields[midpoint,:]/max(fields[midpoint,:])
+
+        from mpl_toolkits.axes_grid1 import make_axes_locatable
+        
+        fig, main_ax = plt.subplots(figsize=(10, 10))
+        divider = make_axes_locatable(main_ax)
+        
+        top_ax = divider.append_axes("top", 2.0, pad=0.5,sharex=main_ax)
+        right_ax = divider.append_axes("right", 2.0, pad=0.5, sharey=main_ax)
+
+        # make some labels invisible
+        top_ax.xaxis.set_tick_params(labelbottom=False)
+        right_ax.yaxis.set_tick_params(labelleft=False)
+
+        #disable autoscale
+        main_ax.autoscale(enable=True)
+        right_ax.autoscale(enable=False)
+        top_ax.autoscale(enable=False)
+
+        #labelling
+        main_ax.set_xlabel('xpos / um')
+        main_ax.set_ylabel('ypos / um')
+        top_ax.set_ylabel('Normalised Fields and N')
+        right_ax.set_xlabel('Normalised Fields and N')
+
+        #plotting 
+        main_ax.imshow(fields,interpolation="none",extent=(-ext,ext,-ext,ext))
+
+        
+        top_ax.plot(np.linspace(-ext,ext,len(horisontal_field)),horisontal_field,label='ey')
+        top_ax_twin = top_ax.twinx()
+        top_ax_twin.plot(np.linspace(-ext,ext,len(horisontal_eps)),horisontal_eps,color='r',label="n")
+        top_ax_twin.set_xlabel("n")
+
+        right_ax.plot(vertical_field,np.linspace(-ext,ext,len(vertical_field)),label='ey')
+        
+        right_ax_twin = right_ax.twiny()
+        right_ax_twin.plot(vertical_eps,np.linspace(-ext,ext,len(vertical_eps)),color='r',label="n")
+        right_ax_twin.set_ylabel("n")
+
+        top_ax.legend()
+        right_ax.legend()
+        
+        plt.show()
+
+
+
+    """
+    saveMetaData saves all the variables to a json file
+    """
+
+    def saveMetaData(self):
+        with open(self.Variables['workingDir'] + 'metadata.json', 'w') as file:
+            json.dump(self.Variables, file)
+
+    """
+    Below are older conviluted functions that need simplified and implimented later.
+    """
 
     
     def SimRanBefore(self):
@@ -86,77 +172,7 @@ class Model:
             
 
 
-    def Buildsim(self,Plot=False,NormRun=False):   # builds sim and plots structure to file 
-
-        self.sim = mp.Simulation(
-            cell_size=self.structure.cell_size,
-            geometry=self.structure.Objlist,
-            sources=self.structure.src,
-            resolution=self.Variables['res'],
-            force_complex_fields=False,
-            eps_averaging=True,
-            boundary_layers=self.structure.pml_layers,
-            progress_interval=30,
-            Courant=self.Variables['Courant']
-
-            )
-        self.sim.use_output_directory(self.Variables["workingDir"])
-
-        # add flux detectors
-        self.detectors = {}
-        if NormRun:
-            self.detectors['Transmission'] = self.sim.add_flux(self.Variables['fcen'], self.Variables['df'], self.Variables['nfreq'],self.structure.detectors['Transmission'])
-        else:
-            for name,detector in self.structure.detectors.items():
-                self.detectors[name] = self.sim.add_flux(self.Variables['fcen'], self.Variables['df'], self.Variables['nfreq'], detector)
-
-
-        fig,ax = plt.subplots(dpi=150)
-        if NormRun:
-            self.sim.plot2D(ax=ax,eps_parameters={'alpha':0.8, 'interpolation':'none'})
-            plt.savefig(self.Variables["workingDir"]+"NormalModel.pdf")
-        else:
-            self.sim.plot2D(ax=ax,eps_parameters={'alpha':0.8, 'interpolation':'none'})
-            plt.savefig(self.Variables["workingDir"]+"Model.pdf")
-        
-
-
-    def normRun(self):
-        #If there hasn't been a previous run and the user want to normalise data, build and run norm.
-        if self.Variables["normal"] == True and self.Variables["prevRun"] == False:
-            self.structure.buildNorm()  
-            self.structure.sources()
-            self.structure.fluxDetectors()
-            self.Buildsim(NormRun=True,Plot=True) 
-
-            #Run normal model
-            print("")
-            print("")
-            print("Normalisation Run")
-            print("")
-            print("")
-
-
-            self.sim.run(
-                until_after_sources=self.Variables['sx']*self.Variables['nCore']
-                )
-
-            self.norm_tran = mp.get_fluxes(self.detectors['Transmission'])
-
-            #Reset sources
-            self.sim.reset_meep()
-
-
-        elif self.Variables["prevRun"] == True:
-            #if there has been a previous sim, then load the norm data
-            with open(self.Variables["workingDir"] + "Data.pkl","rb") as file:
-                data = pickle.load(file)
-            self.norm_tran = data['norm_tran']
-            print("Loaded up pickles")
-        else:
-            "not normaling anyways rip"
-
-
+    
     
     def AutoRun(self):
 

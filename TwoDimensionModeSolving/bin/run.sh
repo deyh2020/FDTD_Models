@@ -1,6 +1,6 @@
 #!/bin/bash
 
-expName="LaptopDebug"
+expName="Siyu"
 
 
 now="Testing"
@@ -8,4 +8,4 @@ workingDir="../data/$now/$expName/"
 mkdir -p $workingDir
 logfile="$workingDir/log.out"
 
-python ../ModeSolving/NaseemFibre.py ${workingDir}
+python ../ModeSolving/SidePolishedFibre.py ${workingDir} NEFFvsTemp PDMS
